@@ -951,3 +951,14 @@ Processing by ProductsController#index as HTML
   [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
   Rendered layouts/_top_nav.html.erb (2.3ms)
 Completed 200 OK in 226ms (Views: 225.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:23:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (212.0ms)
+  Rendered products/index.html.erb within layouts/application (245.8ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (39.3ms)
+Completed 200 OK in 1740ms (Views: 1667.5ms | ActiveRecord: 4.4ms)
