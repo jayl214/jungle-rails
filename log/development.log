@@ -1,0 +1,953 @@
+  [1m[36m (0.6ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (0.1ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (321.7ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (262.2ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (3.3ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160625062916')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")[0m
+  [1m[35m (2.5ms)[0m  CREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (5.3ms)[0m  CREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) 
+  [1m[36m (2.5ms)[0m  [1mCREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621152728')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153741')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153855')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160622113553')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623110200')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623222000')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1  [["name", "Apparel"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Apparel"], ["created_at", "2017-08-01 22:29:48.556061"], ["updated_at", "2017-08-01 22:29:48.556061"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1  [["name", "Electronics"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Electronics"], ["created_at", "2017-08-01 22:29:48.560786"], ["updated_at", "2017-08-01 22:29:48.560786"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1  [["name", "Furniture"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Furniture"], ["created_at", "2017-08-01 22:29:48.564400"], ["updated_at", "2017-08-01 22:29:48.564400"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Men's Classy shirt"], ["description", "Cold-pressed mlkshk messenger bag tilde marfa locavore microdosing poutine. Everyday roof wayfarers iphone etsy bitters pop-up pbr&b. Austin taxidermy vhs tattooed synth. Artisan 8-bit crucifix leggings. Beard yr franzen ethical narwhal. Swag wolf etsy waistcoat irony slow-carb pitchfork mumblecore."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-01 22:29:49.031732"], ["updated_at", "2017-08-01 22:29:49.031732"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Women's Zebra pants"], ["description", "Tacos taxidermy chia. Tote bag banjo vinegar yolo kitsch. Aesthetic distillery heirloom lumbersexual cleanse stumptown kale chips tofu. Quinoa helvetica gentrify chia bicycle rights forage."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-01 22:29:49.151743"], ["updated_at", "2017-08-01 22:29:49.151743"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Hat"], ["description", "Meh craft beer before they sold out viral taxidermy ugh brunch. Wes anderson skateboard butcher selfies taxidermy squid crucifix. Ramps asymmetrical truffaut disrupt bitters migas cornhole distillery. Chartreuse celiac bushwick deep v sriracha pbr&b pitchfork. Pork belly flexitarian mixtape skateboard ugh waistcoat marfa. Sriracha fixie pug heirloom art party ennui kale chips twee."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-01 22:29:49.312255"], ["updated_at", "2017-08-01 22:29:49.312255"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Socks"], ["description", "Irony butcher kinfolk. Sriracha asymmetrical disrupt. Bitters distillery meditation raw denim heirloom. Ennui blue bottle lumbersexual messenger bag viral beard pickled portland. Etsy selvage typewriter freegan ennui fingerstache vinegar."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-01 22:29:49.686590"], ["updated_at", "2017-08-01 22:29:49.686590"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Russian Spy Shoes"], ["description", "Cardigan pabst truffaut. Green juice literally park photo booth crucifix cornhole irony banjo. Wes anderson cray organic literally sartorial meditation selfies vhs. Celiac single-origin coffee swag."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-01 22:29:49.840732"], ["updated_at", "2017-08-01 22:29:49.840732"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Human Feet Shoes"], ["description", "Crucifix cred jean shorts. Park butcher humblebrag post-ironic meh. Chillwave paleo kinfolk. Locavore helvetica literally occupy 90's."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-01 22:29:49.967005"], ["updated_at", "2017-08-01 22:29:49.967005"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Modern Skateboards"], ["description", "Vhs bespoke asymmetrical hella cred selvage chillwave. Knausgaard lomo green juice hella migas scenester biodiesel yuccie. Drinking seitan offal flexitarian dreamcatcher narwhal. Mlkshk tofu brooklyn small batch messenger bag hella."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-01 22:29:50.109063"], ["updated_at", "2017-08-01 22:29:50.109063"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hotdog Slicer"], ["description", "Fingerstache next level iphone. Put a bird on it post-ironic normcore umami tilde squid forage. Retro distillery twee tacos migas meditation dreamcatcher. Fap wolf kombucha echo. Everyday vice selfies neutra williamsburg hella single-origin coffee. Crucifix polaroid master aesthetic bushwick paleo."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-01 22:29:50.257045"], ["updated_at", "2017-08-01 22:29:50.257045"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "World's Largest Smartwatch"], ["description", "Tofu gluten-free lumbersexual stumptown franzen listicle next level keytar. Scenester church-key truffaut marfa. Hoodie semiotics craft beer bitters fanny pack. Put a bird on it chambray kitsch you probably haven't heard of them yuccie. Trust fund listicle deep v forage yuccie. Viral venmo artisan irony."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-01 22:29:50.406737"], ["updated_at", "2017-08-01 22:29:50.406737"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Optimal Sleeping Bed"], ["description", "Irony normcore photo booth. Meditation goth typewriter microdosing cred fap. Organic skateboard lo-fi cornhole gastropub wes anderson semiotics literally. Selvage thundercats helvetica blue bottle readymade cred locavore."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-01 22:29:50.554030"], ["updated_at", "2017-08-01 22:29:50.554030"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Electric Chair"], ["description", "Pbr&b bushwick brunch intelligentsia bespoke trust fund yr. Distillery pork belly goth dreamcatcher yuccie trust fund 3 wolf moon fanny pack. Typewriter single-origin coffee humblebrag selfies disrupt slow-carb. Aesthetic brunch cold-pressed direct trade tattooed pinterest. Dreamcatcher flexitarian 3 wolf moon cred."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-01 22:29:50.719944"], ["updated_at", "2017-08-01 22:29:50.719944"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Red Bookshelf"], ["description", "Cred mixtape plaid. Kale chips truffaut tumblr franzen. Trust fund sriracha synth vinyl lomo 3 wolf moon. Umami small batch bushwick pop-up."], ["image", "furniture3.jpg"], ["quantity", 23], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-01 22:29:50.995519"], ["updated_at", "2017-08-01 22:29:50.995519"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-01 22:34:25 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (207.2ms)
+  Rendered products/index.html.erb within layouts/application (241.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (27.3ms)
+Completed 200 OK in 5441ms (Views: 5374.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:37:51 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (229.6ms)
+  Rendered products/index.html.erb within layouts/application (259.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (30.0ms)
+Completed 200 OK in 1191ms (Views: 1118.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/products/12" for 10.0.2.2 at 2017-08-02 16:39:47 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (58.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.9ms)
+Completed 200 OK in 442ms (Views: 394.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products/9" for 10.0.2.2 at 2017-08-02 16:40:05 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered products/show.html.erb within layouts/application (3.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.8ms)
+Completed 200 OK in 263ms (Views: 260.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/10" for 10.0.2.2 at 2017-08-02 16:40:11 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (2.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.1ms)
+Completed 200 OK in 212ms (Views: 209.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/12" for 10.0.2.2 at 2017-08-02 16:40:25 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (2.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.9ms)
+Completed 200 OK in 229ms (Views: 226.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/12" for 10.0.2.2 at 2017-08-02 16:40:27 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (2.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.1ms)
+Completed 200 OK in 266ms (Views: 263.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-02 16:40:30 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (2.6ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 245ms (Views: 242.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/9" for 10.0.2.2 at 2017-08-02 16:40:33 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered products/show.html.erb within layouts/application (2.3ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.0ms)
+Completed 200 OK in 229ms (Views: 226.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:44:02 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (10.8ms)
+  Rendered products/index.html.erb within layouts/application (29.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.9ms)
+Completed 200 OK in 275ms (Views: 273.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:44:33 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.9ms)
+  Rendered products/index.html.erb within layouts/application (21.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.7ms)
+Completed 200 OK in 189ms (Views: 187.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:46:38 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (10.9ms)
+  Rendered products/index.html.erb within layouts/application (22.2ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.3ms)
+Completed 200 OK in 193ms (Views: 191.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:46:39 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (11.0ms)
+  Rendered products/index.html.erb within layouts/application (21.5ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (1.8ms)
+Completed 200 OK in 186ms (Views: 184.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:46:40 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.1ms)
+  Rendered products/index.html.erb within layouts/application (20.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.0ms)
+Completed 200 OK in 216ms (Views: 214.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:47:29 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (12.1ms)
+  Rendered products/index.html.erb within layouts/application (25.3ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.2ms)
+Completed 200 OK in 2813ms (Views: 2811.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:48:07 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.4ms)
+  Rendered products/index.html.erb within layouts/application (20.7ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.3ms)
+Completed 200 OK in 2388ms (Views: 2386.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:48:42 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (11.7ms)
+  Rendered products/index.html.erb within layouts/application (24.2ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.8ms)
+Completed 200 OK in 2853ms (Views: 2850.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:49:19 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (12.7ms)
+  Rendered products/index.html.erb within layouts/application (24.4ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.5ms)
+Completed 200 OK in 2520ms (Views: 2518.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:50:03 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (13.9ms)
+  Rendered products/index.html.erb within layouts/application (36.0ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.0ms)
+Completed 200 OK in 236ms (Views: 234.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:54:18 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (1.2ms)
+  Rendered products/index.html.erb within layouts/application (17.2ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...ppend=( if @products.quantity );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+  app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:54:33 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (1.7ms)
+  Rendered products/index.html.erb within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...=( if @products.quantity <= 0 );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+  app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:54:59 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (1.1ms)
+  Rendered products/index.html.erb within layouts/application (18.6ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+... @products.quantity <= 0 then );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:57:01 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (1.1ms)
+  Rendered products/index.html.erb within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+... @products.quantity <= 0 then );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:57:03 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (1.3ms)
+  Rendered products/index.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+... @products.quantity <= 0 then );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (26.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:57:32 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (1.0ms)
+  Rendered products/index.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected $undefined, expecting keyword_then or ';' or '\n'
+...=( if @products.quantity <= 0 \n );@output_buffer.safe_appen...
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/products/_product.html.erb:20: syntax error, unexpected $undefined, expecting keyword_then or ';' or '\n'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:57:43 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (1.3ms)
+  Rendered products/index.html.erb within layouts/application (19.4ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+...=( if @products.quantity <= 0 '\n' );@output_buffer.safe_app...
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/products/_product.html.erb:20: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:57:52 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (1.1ms)
+  Rendered products/index.html.erb within layouts/application (19.4ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+...( if @products.quantity <= 0; );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:58:59 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (0.9ms)
+  Rendered products/index.html.erb within layouts/application (13.3ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...=( if @products.quantity <= 0 );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+  app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (27.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 16:59:46 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (19.1ms)
+  Rendered products/index.html.erb within layouts/application (32.5ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `quantity' for #<Product::ActiveRecord_Relation:0x007fad0b350218>):
+    17:     <% end %>
+    18:   </footer>
+    19: 
+    20:   <% if @products.quantity <= 0 %>
+    21:     <aside class="soldOut">
+    22:       SOLD OUT!
+    23:     </aside>
+  app/views/products/_product.html.erb:20:in `_app_views_products__product_html_erb__1215483255540936177_70190473498520'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:00:27 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (16.2ms)
+  Rendered products/index.html.erb within layouts/application (29.9ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `quantity' for nil:NilClass):
+    17:     <% end %>
+    18:   </footer>
+    19: 
+    20:   <% if @product.quantity <= 0 %>
+    21:     <aside class="soldOut">
+    22:       SOLD OUT!
+    23:     </aside>
+  app/views/products/_product.html.erb:20:in `_app_views_products__product_html_erb__1215483255540936177_70190708056820'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:02:34 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (18.1ms)
+  Rendered products/index.html.erb within layouts/application (31.6ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `this' for #<Product::ActiveRecord_Relation:0x007facfd17c968>
+Did you mean?  third):
+    17:     <% end %>
+    18:   </footer>
+    19: 
+    20:   <% if @products.this.quantity <= 0 %>
+    21:     <aside class="soldOut">
+    22:       SOLD OUT!
+    23:     </aside>
+  app/views/products/_product.html.erb:20:in `_app_views_products__product_html_erb__1215483255540936177_70190478455480'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (26.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:03:09 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (74.0ms)
+  Rendered products/index.html.erb within layouts/application (89.3ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `quantity' for #<#<Class:0x007fad108f2f40>:0x007fad1156ca28>):
+    17:     <% end %>
+    18:   </footer>
+    19: 
+    20:   <% if self.quantity <= 0 %>
+    21:     <aside class="soldOut">
+    22:       SOLD OUT!
+    23:     </aside>
+  app/views/products/_product.html.erb:20:in `_app_views_products__product_html_erb__1215483255540936177_70190648216760'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (24.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:04:44 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (20.5ms)
+  Rendered products/index.html.erb within layouts/application (33.2ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `quantiity' for #<Product:0x007fad094c1928>
+Did you mean?  quantity
+               quantity?
+               quantity=):
+    17:     <% end %>
+    18:   </footer>
+    19: 
+    20:   <% if product.quantiity <= 0 %>
+    21:     <aside class="soldOut">
+    22:       SOLD OUT!
+    23:     </aside>
+  app/views/products/_product.html.erb:20:in `_app_views_products__product_html_erb__1215483255540936177_70190580832520'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:04:53 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (13.3ms)
+  Rendered products/index.html.erb within layouts/application (37.0ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.6ms)
+Completed 200 OK in 421ms (Views: 419.6ms | ActiveRecord: 0.6ms)
+  [1m[36m (5056.9ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (115.2ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.4ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (351.0ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (11.6ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.9ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (27.7ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.6ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.3ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (4.4ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (3.3ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.9ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.9ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160625062916')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Apparel"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apparel"], ["created_at", "2017-08-02 17:05:52.065578"], ["updated_at", "2017-08-02 17:05:52.065578"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Electronics"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electronics"], ["created_at", "2017-08-02 17:05:52.070324"], ["updated_at", "2017-08-02 17:05:52.070324"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Furniture"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Furniture"], ["created_at", "2017-08-02 17:05:52.074613"], ["updated_at", "2017-08-02 17:05:52.074613"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Men's Classy shirt"], ["description", "Kombucha pop-up hoodie asymmetrical craft beer normcore. Normcore austin photo booth echo. Post-ironic truffaut semiotics ennui. Austin pour-over crucifix lo-fi try-hard thundercats cronut. Cliche banjo sustainable vegan waistcoat blue bottle. Food truck viral pour-over taxidermy banjo distillery everyday."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-02 17:05:52.556644"], ["updated_at", "2017-08-02 17:05:52.556644"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Women's Zebra pants"], ["description", "Loko fanny pack etsy neutra tilde bicycle rights. Tumblr gentrify yolo. Actually yr viral put a bird on it. Pug schlitz blue bottle keffiyeh. Cray five dollar toast umami sriracha knausgaard chicharrones you probably haven't heard of them. Cliche tote bag portland thundercats hella."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-02 17:05:52.698046"], ["updated_at", "2017-08-02 17:05:52.698046"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Hat"], ["description", "Pbr&b salvia kogi iphone gastropub green juice. Sustainable locavore tattooed intelligentsia helvetica selvage green juice vinyl. Butcher carry migas semiotics. Organic vice irony brunch retro street asymmetrical pinterest. Before they sold out mlkshk pop-up try-hard freegan meggings hella."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-02 17:05:52.879378"], ["updated_at", "2017-08-02 17:05:52.879378"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Socks"], ["description", "Mlkshk tousled pork belly truffaut. Butcher kogi post-ironic kale chips farm-to-table. Synth kickstarter pour-over try-hard cold-pressed. Poutine paleo drinking keytar pitchfork kogi sriracha kale chips."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-02 17:05:53.288998"], ["updated_at", "2017-08-02 17:05:53.288998"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Russian Spy Shoes"], ["description", "Post-ironic messenger bag bespoke cray you probably haven't heard of them hammock. Kickstarter direct trade craft beer. Scenester you probably haven't heard of them letterpress trust fund yuccie. Put a bird on it direct trade celiac bespoke everyday art party master etsy. Disrupt wolf fanny pack pug put a bird on it knausgaard. Cornhole thundercats mixtape intelligentsia williamsburg."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-02 17:05:53.456312"], ["updated_at", "2017-08-02 17:05:53.456312"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Human Feet Shoes"], ["description", "Retro pug bushwick fixie kickstarter xoxo iphone. Narwhal taxidermy meditation bespoke gastropub locavore. Chartreuse +1 kombucha pickled irony. Master semiotics listicle brooklyn vhs pug."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-02 17:05:53.608600"], ["updated_at", "2017-08-02 17:05:53.608600"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Modern Skateboards"], ["description", "Vegan cleanse cray scenester wolf church-key pork belly. Bespoke kitsch pour-over meggings raw denim wolf. Pinterest literally chillwave fixie pitchfork semiotics. Mlkshk plaid craft beer austin microdosing food truck."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-02 17:05:53.799900"], ["updated_at", "2017-08-02 17:05:53.799900"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hotdog Slicer"], ["description", "Art party gluten-free fashion axe austin lo-fi carry celiac. Keffiyeh vhs slow-carb poutine roof humblebrag lo-fi schlitz. Williamsburg chicharrones farm-to-table paleo vinegar slow-carb cronut loko. Wolf meditation trust fund salvia selfies direct trade. 90's twee put a bird on it locavore tofu."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-02 17:05:53.985187"], ["updated_at", "2017-08-02 17:05:53.985187"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "World's Largest Smartwatch"], ["description", "Vinegar tote bag banh mi letterpress next level. Ennui single-origin coffee cornhole mustache tote bag. Literally drinking flannel migas hammock. Gluten-free authentic ramps semiotics vhs tilde hammock. Chicharrones pork belly health cronut pug echo park wayfarers."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-02 17:05:54.195702"], ["updated_at", "2017-08-02 17:05:54.195702"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Optimal Sleeping Bed"], ["description", "Drinking pug xoxo bushwick banh mi bitters 90's. Etsy chillwave whatever kinfolk cornhole viral post-ironic. Photo booth keffiyeh diy waistcoat. Locavore post-ironic 90's etsy roof gentrify vice iphone."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-02 17:05:54.381470"], ["updated_at", "2017-08-02 17:05:54.381470"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Electric Chair"], ["description", "Viral distillery franzen typewriter scenester marfa godard actually. Sustainable chambray pbr&b tilde. Distillery knausgaard swag kombucha diy vice skateboard chartreuse. Sriracha salvia tote bag. Lomo direct trade deep v bushwick raw denim."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-02 17:05:54.589106"], ["updated_at", "2017-08-02 17:05:54.589106"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Red Bookshelf"], ["description", "Pickled poutine raw denim yolo hashtag. Bitters tumblr pork belly kickstarter seitan. Skateboard vinegar ugh. Fingerstache lomo synth flexitarian 90's tote bag celiac. Craft beer sartorial ramps crucifix pug. Letterpress vegan actually keffiyeh skateboard pour-over."], ["image", "furniture3.jpg"], ["quantity", 0], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-02 17:05:55.061672"], ["updated_at", "2017-08-02 17:05:55.061672"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:06:02 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (14.5ms)
+  Rendered products/index.html.erb within layouts/application (29.6ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.3ms)
+Completed 200 OK in 250ms (Views: 248.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:07:37 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (1.2ms)
+  Rendered products/index.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...nd=( if product.quantity <= 0 );@output_buffer.safe_append='
+...                               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/vagrant/w6d3/jungle-rails/app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/products/_product.html.erb:20: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+  app/views/products/_product.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/_product.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/products/_product.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+  app/views/products/index.html.erb:8:in `_app_views_products_index_html_erb___1285587295576540005_70190642058640'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-02 17:09:05 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (9.4ms)
+  Rendered products/index.html.erb within layouts/application (23.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.3ms)
+Completed 200 OK in 226ms (Views: 225.0ms | ActiveRecord: 0.7ms)
