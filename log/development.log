@@ -6524,3 +6524,2234 @@ Processing by OrdersController#show as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   Rendered layouts/_top_nav.html.erb (3.4ms)
 Completed 200 OK in 257ms (Views: 253.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:34:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (308.6ms)
+  Rendered products/index.html.erb within layouts/application (342.8ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (113.0ms)
+Completed 200 OK in 1695ms (Views: 1619.0ms | ActiveRecord: 8.1ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:34:09 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"NJc9pyAqPbJ2z13IbgiroaOIAqtjEVMh7/FnmjwQ0gtVlSeqD/kssF4Qvwy6MIdlSf4tOb5P0Vh61w/DxuOTPg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:34:09 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (13.0ms)
+  Rendered products/index.html.erb within layouts/application (34.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.6ms)
+Completed 200 OK in 433ms (Views: 430.7ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/cart/add_item?product_id=9" for 10.0.2.2 at 2017-08-03 18:34:11 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"Rfw8SG8yhQ8fLmdgY6wlKIeszUfAhZZI7BwJwX8KbsAk/iZFQOGUDTfxhaS3lAnsbdri1R3bFDF5OmGYhfkv9Q==", "product_id"=>"9"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:34:11 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (36.8ms)
+  Rendered products/index.html.erb within layouts/application (64.3ms)
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (7.1ms)
+Completed 200 OK in 519ms (Views: 516.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products/10" for 10.0.2.2 at 2017-08-03 18:34:12 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (58.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.4ms)
+Completed 200 OK in 380ms (Views: 374.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:34:16 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered carts/_item.html.erb (3.5ms)
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered carts/_item.html.erb (2.2ms)
+  Rendered carts/show.html.erb within layouts/application (39.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 317ms (Views: 315.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:34:26 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pBrrR9Wj7FHrHqzz4f1KJm/7Fpn7/71IdSBueXz9GiLFGPFK+nD9U8PBTjc1xWbihY05CyahPzHgBgYghg5bFw==", "stripeToken"=>"tok_1AmoAMEReceNAoo2UpV8qjAA", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 301394], ["stripe_charge_id", "ch_1AmoASEReceNAoo2eEvb8JbJ"], ["created_at", "2017-08-03 18:34:30.036289"], ["updated_at", "2017-08-03 18:34:30.036289"]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 11], ["created_at", "2017-08-03 18:34:30.040202"], ["updated_at", "2017-08-03 18:34:30.040202"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 9], ["quantity", 1], ["item_price_cents", 202629], ["total_price_cents", 202629], ["order_id", 11], ["created_at", "2017-08-03 18:34:30.043919"], ["updated_at", "2017-08-03 18:34:30.043919"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders/11
+Completed 302 Found in 3670ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/orders/11" for 10.0.2.2 at 2017-08-03 18:34:30 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 11]]
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `receipt_email' for #<OrdersController:0x007f6ea4f47b20>):
+  app/controllers/orders_controller.rb:5:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.0ms)
+
+
+Started GET "/orders" for 10.0.2.2 at 2017-08-03 18:39:57 +0000
+
+ActionController::RoutingError (No route matches [GET] "/orders"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.5.2) lib/puma/configuration.rb:225:in `call'
+  puma (3.5.2) lib/puma/server.rb:569:in `handle_request'
+  puma (3.5.2) lib/puma/server.rb:406:in `process_client'
+  puma (3.5.2) lib/puma/server.rb:271:in `block in run'
+  puma (3.5.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (30.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (53.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (35.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:40:01 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.1ms)
+  Rendered products/index.html.erb within layouts/application (25.0ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.6ms)
+Completed 200 OK in 256ms (Views: 253.8ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:40:05 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"kX0K78qdzN0pEVPCKafpMGGJJWiFGHoMtQotklR56YTwfxDi5U7d3wHOsQb9n8X0i/8K+lhG+HUgLEXLroqosQ==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:40:05 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (17.1ms)
+  Rendered products/index.html.erb within layouts/application (33.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.9ms)
+Completed 200 OK in 331ms (Views: 329.6ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/cart/add_item?product_id=9" for 10.0.2.2 at 2017-08-03 18:40:07 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"UGA52MfkO8JBvCBXcZ65xEZWuywzfvlRDMJ5CxMwvEQxYiPV6DcqwGljwpOlppUArCCUvu4geyiZ5BFS6cP9cQ==", "product_id"=>"9"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:40:07 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (10.6ms)
+  Rendered products/index.html.erb within layouts/application (33.9ms)
+  [1m[35mCategory Load (1.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (6.6ms)
+Completed 200 OK in 396ms (Views: 393.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:40:10 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (2.8ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered carts/_item.html.erb (3.0ms)
+  Rendered carts/show.html.erb within layouts/application (46.9ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (6.8ms)
+Completed 200 OK in 465ms (Views: 462.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:40:16 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f+quump2b2bXavrNpGTvtUAWzXVJ9qT9orpDFwKkHaIe6LS3RaV+ZP+1GAlwXMNxqmDi55SoJoQ3nCtO+Fdclw==", "stripeToken"=>"tok_1AmoG2EReceNAoo2mdt5EY8a", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 301394], ["stripe_charge_id", "ch_1AmoG5EReceNAoo2H3GPOXyn"], ["created_at", "2017-08-03 18:40:18.976809"], ["updated_at", "2017-08-03 18:40:18.976809"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 12], ["created_at", "2017-08-03 18:40:18.980847"], ["updated_at", "2017-08-03 18:40:18.980847"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 9], ["quantity", 1], ["item_price_cents", 202629], ["total_price_cents", 202629], ["order_id", 12], ["created_at", "2017-08-03 18:40:18.984169"], ["updated_at", "2017-08-03 18:40:18.984169"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/orders/12
+Completed 302 Found in 2143ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/orders/12" for 10.0.2.2 at 2017-08-03 18:40:18 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", 12]]
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `receipt_email' for #<OrdersController:0x007f6ea507ed18>):
+  app/controllers/orders_controller.rb:5:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:42:54 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (288.2ms)
+  Rendered products/index.html.erb within layouts/application (326.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (106.8ms)
+Completed 200 OK in 1692ms (Views: 1611.5ms | ActiveRecord: 6.1ms)
+
+
+Started PUT "/cart/add_item?product_id=9" for 10.0.2.2 at 2017-08-03 18:42:59 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"/Xx56JIVtBJvVeZ3T+egd5kiaACkm1RPcj4W/PJlJsmcfmPlvcalEEeKBLOb34yzc1RHknnF1jbnGH6lCJZn/A==", "product_id"=>"9"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:42:59 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (15.2ms)
+  Rendered products/index.html.erb within layouts/application (31.7ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (6.7ms)
+Completed 200 OK in 445ms (Views: 443.4ms | ActiveRecord: 1.2ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:43:01 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"aZJr8BksA2ST91IJaRmNZ26Of4Zb2h08tIpoZ2DoDdAIkHH9Nv8SZrsosM29IaGjhPhQFIaEn0UhrAA+mhtM5Q==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:43:01 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (13.0ms)
+  Rendered products/index.html.erb within layouts/application (31.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.2ms)
+Completed 200 OK in 366ms (Views: 363.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:43:04 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered carts/_item.html.erb (6.2ms)
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (3.1ms)
+  Rendered carts/show.html.erb within layouts/application (43.6ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.7ms)
+Completed 200 OK in 307ms (Views: 304.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:43:11 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZKFamZKe7yFBywF7+Im1/R6qJqd27BPrlyDEHw8KOqUFo0CUvU3+I2kU478ssZk59NwJNauykZICBqxG9fl7kA==", "stripeToken"=>"tok_1AmoIqEReceNAoo2Ys1LC6CE", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 301394], ["stripe_charge_id", "ch_1AmoIuEReceNAoo2VSghrRwn"], ["created_at", "2017-08-03 18:43:14.137050"], ["updated_at", "2017-08-03 18:43:14.137050"]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 9], ["quantity", 1], ["item_price_cents", 202629], ["total_price_cents", 202629], ["order_id", 13], ["created_at", "2017-08-03 18:43:14.140599"], ["updated_at", "2017-08-03 18:43:14.140599"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 13], ["created_at", "2017-08-03 18:43:14.144574"], ["updated_at", "2017-08-03 18:43:14.144574"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders/13
+Completed 302 Found in 2274ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/orders/13" for 10.0.2.2 at 2017-08-03 18:43:14 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mOrder Load (0.5ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 13]]
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered orders/_line_item.html.erb (4.2ms)
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered orders/_line_item.html.erb (3.5ms)
+  Rendered orders/show.html.erb within layouts/application (43.5ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.5ms)
+Completed 200 OK in 322ms (Views: 315.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:46:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.2ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (328.2ms)
+  Rendered products/index.html.erb within layouts/application (366.3ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (134.4ms)
+Completed 200 OK in 2057ms (Views: 1954.7ms | ActiveRecord: 7.6ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:46:15 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"kn21+YPPfTkcje4LKnSgE37u8YYGAWvQYfZZJu9/zwPzf6/0rBxsOzRSDM/+TIzXlJjeFNtf6an00DF/FYyONg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:46:15 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (26.4ms)
+  Rendered products/index.html.erb within layouts/application (57.0ms)
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (7.6ms)
+Completed 200 OK in 462ms (Views: 458.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:46:18 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (10.0ms)
+  Rendered carts/show.html.erb within layouts/application (32.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.2ms)
+Completed 200 OK in 326ms (Views: 324.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:46:24 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/BNImi83ruabKWsW2XlJhaqrMN3EzpLKKXmrzHyhjXSdEVKXAOS/5LP2idINQWVBQN0fTxmQELO8X8OVhlLMQQ==", "stripeToken"=>"tok_1AmoLxEReceNAoo25M4vezjC", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoM1EReceNAoo2U3qPwasK"], ["created_at", "2017-08-03 18:46:26.211822"], ["updated_at", "2017-08-03 18:46:26.211822"]]
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 14], ["created_at", "2017-08-03 18:46:26.215902"], ["updated_at", "2017-08-03 18:46:26.215902"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders/14
+Completed 302 Found in 1576ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/orders/14" for 10.0.2.2 at 2017-08-03 18:46:26 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 14]]
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (5.0ms)
+  Rendered orders/show.html.erb within layouts/application (27.3ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.8ms)
+Completed 200 OK in 296ms (Views: 290.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:49:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (216.4ms)
+  Rendered products/index.html.erb within layouts/application (248.3ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (98.9ms)
+Completed 200 OK in 1397ms (Views: 1307.0ms | ActiveRecord: 6.6ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:49:44 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"qyF3Le6sS6AXcbGRN9j6icztQ1pMdEpf56MOUiGILFDKI20gwX9aoj+uU1Xj4NZNJptsyJEqyCZyhWYL23ttZQ==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:49:44 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (29.4ms)
+  Rendered products/index.html.erb within layouts/application (49.1ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.6ms)
+Completed 200 OK in 377ms (Views: 375.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:49:46 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (4.6ms)
+  Rendered carts/show.html.erb within layouts/application (19.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 254ms (Views: 252.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:49:52 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/Agb0jNMhjl7MTuZ2a8YymtDkLVK5Pry6UlIIqrlHZy8jpiZx4jGs0zJiqzXpCnw9sh0Ah1EZJeg015cFjVQw==", "stripeToken"=>"tok_1AmoPJEReceNAoo2GR8sufGI", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoPNEReceNAoo2Wg6wHah1"], ["created_at", "2017-08-03 18:49:53.964577"], ["updated_at", "2017-08-03 18:49:53.964577"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 15], ["created_at", "2017-08-03 18:49:53.967536"], ["updated_at", "2017-08-03 18:49:53.967536"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders/15
+Completed 302 Found in 1484ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/orders/15" for 10.0.2.2 at 2017-08-03 18:49:54 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 15]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (3.0ms)
+  Rendered orders/show.html.erb within layouts/application (29.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 317ms (Views: 311.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:51:12 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (221.8ms)
+  Rendered products/index.html.erb within layouts/application (257.4ms)
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (150.9ms)
+Completed 200 OK in 1503ms (Views: 1426.9ms | ActiveRecord: 10.6ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:51:17 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"hMFmtRVJ2VOdNbx37eNi7BHAadONYXG0Le/X/pvMcdzlw3y4OprIUbXqXrM5204o+7ZGQVA/8824yb+nYT8w6Q==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:51:17 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (41.0ms)
+  Rendered products/index.html.erb within layouts/application (57.0ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.5ms)
+Completed 200 OK in 378ms (Views: 375.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:51:19 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (4.6ms)
+  Rendered carts/show.html.erb within layouts/application (27.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 305ms (Views: 302.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:51:28 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VKu5D8QBHicPcQR+8gVmlII1e/Hh1s2sy9dqJLBYRyg1qaMC69IPJSeu5romPUpQaENUYzyIT9Ve8QJ9SqsGHQ==", "stripeToken"=>"tok_1AmoQrEReceNAoo2NLCXiFUR", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoQvEReceNAoo289Ier6uC"], ["created_at", "2017-08-03 18:51:29.959347"], ["updated_at", "2017-08-03 18:51:29.959347"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 16], ["created_at", "2017-08-03 18:51:29.962269"], ["updated_at", "2017-08-03 18:51:29.962269"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders/16
+Completed 302 Found in 1268ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/orders/16" for 10.0.2.2 at 2017-08-03 18:51:30 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 16]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.8ms)
+  Rendered orders/show.html.erb within layouts/application (31.8ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 317ms (Views: 312.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:52:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (239.2ms)
+  Rendered products/index.html.erb within layouts/application (275.4ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (117.1ms)
+Completed 200 OK in 1582ms (Views: 1490.6ms | ActiveRecord: 7.5ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:52:46 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"vYS40i7BRxU7O9G5bKc4mC2Jax37omWT/yC3dICKDXnchqLfARJWFxPkM324nxRcx/9Ejyb85+pqBt8tenlMTA==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:52:46 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.2ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (32.1ms)
+  Rendered products/index.html.erb within layouts/application (68.3ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (7.1ms)
+Completed 200 OK in 508ms (Views: 504.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:52:48 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (4.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (9.1ms)
+  Rendered carts/show.html.erb within layouts/application (29.7ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 286ms (Views: 279.7ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:52:55 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C3uCVdRUFopA03aG4Z7B1/fhl6DA1S48wJRKpbq/IpZqeZhY+4cHiGgMlEI1pu0THZe4Mh2LrEVVsiL8QExjow==", "stripeToken"=>"tok_1AmoSGEReceNAoo25D6rrrbV", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoSJEReceNAoo2G8wbeHTA"], ["created_at", "2017-08-03 18:52:56.691824"], ["updated_at", "2017-08-03 18:52:56.691824"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 17], ["created_at", "2017-08-03 18:52:56.696551"], ["updated_at", "2017-08-03 18:52:56.696551"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/orders/17
+Completed 302 Found in 1437ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/orders/17" for 10.0.2.2 at 2017-08-03 18:52:56 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 17]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (3.4ms)
+  Rendered orders/show.html.erb within layouts/application (30.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.7ms)
+Completed 200 OK in 445ms (Views: 440.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:56:25 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (349.9ms)
+  Rendered products/index.html.erb within layouts/application (394.7ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (97.2ms)
+Completed 200 OK in 1899ms (Views: 1774.4ms | ActiveRecord: 11.0ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:56:33 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"6AMjSMFWnq+WQEFzjIwkRN9h5sY0lVNxl7USDypo3ZSJATlF7oWPrb6fo7dYtAiANRfJVOnL0QgCk3pW0JucoQ==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:56:33 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (15.9ms)
+  Rendered products/index.html.erb within layouts/application (39.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.6ms)
+Completed 200 OK in 375ms (Views: 372.9ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/cart/add_item?product_id=9" for 10.0.2.2 at 2017-08-03 18:56:38 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"+7JXCZkC8cwMmrYd7Qhknn/K9l8Kxz/BJWnQ516EmaaasE0EttHgziRFVNk5MEhalbzZzdeZvbiwT7i+pHfYkw==", "product_id"=>"9"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:56:38 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (25.7ms)
+  Rendered products/index.html.erb within layouts/application (45.5ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.5ms)
+Completed 200 OK in 428ms (Views: 426.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:56:43 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered carts/_item.html.erb (12.0ms)
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered carts/_item.html.erb (2.9ms)
+  Rendered carts/show.html.erb within layouts/application (50.0ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.8ms)
+Completed 200 OK in 303ms (Views: 300.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:56:50 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zvoLXEy+kt2gkfbA8xjhZp/Pf+pqVH5QWeYIs/APPFSv+BFRY22D34hOFAQnIM2idblQeLcK/CnMwGDqCvx9YQ==", "stripeToken"=>"tok_1AmoW3EReceNAoo2m6Y4nxid", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 301394], ["stripe_charge_id", "ch_1AmoW7EReceNAoo2IQy3fy9f"], ["created_at", "2017-08-03 18:56:52.194206"], ["updated_at", "2017-08-03 18:56:52.194206"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 18], ["created_at", "2017-08-03 18:56:52.197723"], ["updated_at", "2017-08-03 18:56:52.197723"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 9], ["quantity", 1], ["item_price_cents", 202629], ["total_price_cents", 202629], ["order_id", 18], ["created_at", "2017-08-03 18:56:52.200812"], ["updated_at", "2017-08-03 18:56:52.200812"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+[ActiveJob]   [1m[35mOrder Load (0.2ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 18]]
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ReceiptMailer", "receipt_email", "deliver_now", gid://jungle/Order/18
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096]   Rendered receipt_mailer/receipt_email.html.erb (0.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096]   Rendered receipt_mailer/receipt_email.text.erb (0.7ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096] 
+ReceiptMailer#receipt_email: processed outbound mail in 492.3ms
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096] 
+Sent mail to kvirani@gmail.com (42.3ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096] Date: Thu, 03 Aug 2017 18:56:52 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <598371f4d64e6_542a3fe9ff7991bc17594@ubuntu.mail>
+Subject: 18
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_598371f4d0e73_542a3fe9ff7991bc174c2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_598371f4d0e73_542a3fe9ff7991bc174c2
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 18
+Thank you for your purchase!
+----==_mimepart_598371f4d0e73_542a3fe9ff7991bc174c2
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 18</h1>
+    <p>
+      Thank you for your purchase!
+    </p>
+  </body>
+</html>
+----==_mimepart_598371f4d0e73_542a3fe9ff7991bc174c2--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [0166632c-f1ab-4e6b-99d2-3c2871fdc096] Performed ActionMailer::DeliveryJob from Inline(mailers) in 544.46ms
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 0166632c-f1ab-4e6b-99d2-3c2871fdc096) to Inline(mailers) with arguments: "ReceiptMailer", "receipt_email", "deliver_now", gid://jungle/Order/18
+Redirected to http://localhost:3000/orders/18
+Completed 302 Found in 2159ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/orders/18" for 10.0.2.2 at 2017-08-03 18:56:52 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mLineItem Load (0.3ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 18]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.5ms)
+  [1m[35mProduct Load (4.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered orders/_line_item.html.erb (7.0ms)
+  Rendered orders/show.html.erb within layouts/application (52.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.7ms)
+Completed 200 OK in 322ms (Views: 311.4ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:57:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (2.0ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (226.0ms)
+  Rendered products/index.html.erb within layouts/application (264.6ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (107.3ms)
+Completed 200 OK in 1454ms (Views: 1359.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:57:50 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (37.8ms)
+  Rendered products/index.html.erb within layouts/application (66.1ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.9ms)
+Completed 200 OK in 421ms (Views: 418.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:57:50 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (21.0ms)
+  Rendered products/index.html.erb within layouts/application (52.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.7ms)
+Completed 200 OK in 310ms (Views: 307.0ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 18:57:52 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"vVsg+XzDe+JOpIjkev6t9lVFBQ2nLziDY4Bshg1+JQPcWTr0UxBq4GZ7aiCuxoEyvzMqn3pxuvr2pgTf941kNg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 18:57:52 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (28.9ms)
+  Rendered products/index.html.erb within layouts/application (44.7ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.4ms)
+Completed 200 OK in 356ms (Views: 353.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 18:57:54 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (4.2ms)
+  Rendered carts/show.html.erb within layouts/application (19.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.9ms)
+Completed 200 OK in 258ms (Views: 256.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 18:58:00 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vyub/ugMAvPeQFcoQ4B6axjUhZfKVPAzqhp5Ppr16tjeKYHzx98T8fafteyXuFav8qKqBRcKcko/PBFnYAar7Q==", "stripeToken"=>"tok_1AmoXBEReceNAoo24kEGUbuN", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoXEEReceNAoo2JcKQIUQs"], ["created_at", "2017-08-03 18:58:01.860482"], ["updated_at", "2017-08-03 18:58:01.860482"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 19], ["created_at", "2017-08-03 18:58:01.863688"], ["updated_at", "2017-08-03 18:58:01.863688"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  Rendered receipt_mailer/receipt_email.html.erb (0.4ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.5ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 421.2ms
+
+Sent mail to kvirani@gmail.com (29.2ms)
+Date: Thu, 03 Aug 2017 18:58:02 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <5983723a58b4b_54563f9c5063430023545@ubuntu.mail>
+Subject: 19
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5983723a540bd_54563f9c5063430023426";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5983723a540bd_54563f9c5063430023426
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 19
+Thank you for your purchase!
+----==_mimepart_5983723a540bd_54563f9c5063430023426
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 19</h1>
+    <p>
+      Thank you for your purchase!
+    </p>
+  </body>
+</html>
+----==_mimepart_5983723a540bd_54563f9c5063430023426--
+
+Redirected to http://localhost:3000/orders/19
+Completed 302 Found in 2036ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/orders/19" for 10.0.2.2 at 2017-08-03 18:58:02 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 19]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 19]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.6ms)
+  Rendered orders/show.html.erb within layouts/application (25.1ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.1ms)
+Completed 200 OK in 362ms (Views: 358.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:00:56 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (266.3ms)
+  Rendered products/index.html.erb within layouts/application (298.6ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (88.2ms)
+Completed 200 OK in 1425ms (Views: 1305.2ms | ActiveRecord: 6.3ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:01:00 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"7GBYGZQoZ83GYXokHM+UMwVLqaX4yexzcUugHV4BSCuNYkIUu/t2z+6+mODI97j37z2GNyWXbgrkbchEpPIJHg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:01:00 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (22.9ms)
+  Rendered products/index.html.erb within layouts/application (40.5ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.2ms)
+Completed 200 OK in 378ms (Views: 376.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:01:02 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (4.8ms)
+  Rendered carts/show.html.erb within layouts/application (30.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.8ms)
+Completed 200 OK in 383ms (Views: 380.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:01:08 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wej50mEzJ2rgVKE5iDOYGnYqL+cTdrHP6Jn4GkGYv/ag6uPfTuA2aMiLQ/1cC7TenFwAdc4oM7Z9v5BDu2v+ww==", "stripeToken"=>"tok_1AmoaDEReceNAoo2flf4FEOU", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoaGEReceNAoo25SyBHQby"], ["created_at", "2017-08-03 19:01:09.701176"], ["updated_at", "2017-08-03 19:01:09.701176"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 20], ["created_at", "2017-08-03 19:01:09.704638"], ["updated_at", "2017-08-03 19:01:09.704638"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  Rendered receipt_mailer/receipt_email.html.erb (0.6ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.4ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 387.6ms
+
+Sent mail to kvirani@gmail.com (26.3ms)
+Date: Thu, 03 Aug 2017 19:01:10 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <598372f6295a7_54b13fc71d53991c127dc@ubuntu.mail>
+Subject: Order Number #{@order.id}
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_598372f625074_54b13fc71d53991c12669";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_598372f625074_54b13fc71d53991c12669
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 20
+Thank you for your purchase!
+----==_mimepart_598372f625074_54b13fc71d53991c12669
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 20</h1>
+    <p>
+      Thank you for your purchase!
+    </p>
+  </body>
+</html>
+----==_mimepart_598372f625074_54b13fc71d53991c12669--
+
+Redirected to http://localhost:3000/orders/20
+Completed 302 Found in 1681ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/orders/20" for 10.0.2.2 at 2017-08-03 19:01:10 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 20]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.7ms)
+  Rendered orders/show.html.erb within layouts/application (20.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.5ms)
+Completed 200 OK in 253ms (Views: 249.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/orders/20" for 10.0.2.2 at 2017-08-03 19:02:16 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 20]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (325.4ms)
+  Rendered orders/show.html.erb within layouts/application (460.9ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (56.0ms)
+Completed 200 OK in 1780ms (Views: 1672.4ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:02:32 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (30.1ms)
+  Rendered products/index.html.erb within layouts/application (50.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.9ms)
+Completed 200 OK in 429ms (Views: 426.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:02:34 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (12.3ms)
+  Rendered products/index.html.erb within layouts/application (31.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.2ms)
+Completed 200 OK in 337ms (Views: 335.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:02:44 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (216.0ms)
+  Rendered products/index.html.erb within layouts/application (251.9ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (96.5ms)
+Completed 200 OK in 1436ms (Views: 1344.6ms | ActiveRecord: 5.8ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:02:52 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"vD76+JawWX1vVF7PVjw/l/Dw0ZLa7XcMrYV8OUTmOk7dPOD1uWNIf0eLvAuCBBNTGob+AAez9XU4oxRgvhV7ew==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:02:52 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (24.4ms)
+  Rendered products/index.html.erb within layouts/application (50.6ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.5ms)
+Completed 200 OK in 498ms (Views: 494.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:02:54 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (5.3ms)
+  Rendered carts/show.html.erb within layouts/application (26.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 273ms (Views: 271.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:02:59 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ti5bivtBz86I+qrvQ33Tkock+2PU8TnOhFxd8ggb1PMvLEGH1JLezKAlSCuXRf9WbVLU8Qmvu7cRejWr8uiVxg==", "stripeToken"=>"tok_1Amoc0EReceNAoo2855GRyLC", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1Amoc3EReceNAoo24q8iIDQq"], ["created_at", "2017-08-03 19:03:01.072310"], ["updated_at", "2017-08-03 19:03:01.072310"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 21], ["created_at", "2017-08-03 19:03:01.075327"], ["updated_at", "2017-08-03 19:03:01.075327"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  Rendered receipt_mailer/receipt_email.html.erb (0.5ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.8ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 481.1ms
+
+Sent mail to kvirani@gmail.com (29.6ms)
+Date: Thu, 03 Aug 2017 19:03:01 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <598373659e023_55023fe92d887eac118c9@ubuntu.mail>
+Subject: Order Number 21
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5983736599448_55023fe92d887eac11784";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5983736599448_55023fe92d887eac11784
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 21
+Thank you for your purchase!
+----==_mimepart_5983736599448_55023fe92d887eac11784
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 21</h1>
+    <p>
+      Thank you for your purchase!
+    </p>
+  </body>
+</html>
+----==_mimepart_5983736599448_55023fe92d887eac11784--
+
+Redirected to http://localhost:3000/orders/21
+Completed 302 Found in 1751ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/orders/21" for 10.0.2.2 at 2017-08-03 19:03:01 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 21]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 21]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.6ms)
+  Rendered orders/show.html.erb within layouts/application (22.8ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.5ms)
+Completed 200 OK in 306ms (Views: 302.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:10:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (270.6ms)
+  Rendered products/index.html.erb within layouts/application (313.0ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (84.1ms)
+Completed 200 OK in 1357ms (Views: 1263.2ms | ActiveRecord: 7.3ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:10:41 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"og91v4n0y0SOgrSzgv0t9lnnKe0u+UEKvKlo+SSyeOHDDW+ypifaRqZdVndWxQEys5EGf/Onw3MpjwCg3kE51A==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:10:41 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (27.2ms)
+  Rendered products/index.html.erb within layouts/application (49.1ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (6.6ms)
+Completed 200 OK in 363ms (Views: 360.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:10:43 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (4.9ms)
+  Rendered carts/show.html.erb within layouts/application (26.0ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.0ms)
+Completed 200 OK in 287ms (Views: 284.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:10:52 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NecsDLzr4r/006gR5HhM/OLQddzMS3VudU1ImNnv5nNU5TYBkzjzvdwMStUwQGA4CKZaThEV9xfgayDBIxynRg==", "stripeToken"=>"tok_1AmojcEReceNAoo2C0qokM7v", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmojgEReceNAoo2A6DxHgKh"], ["created_at", "2017-08-03 19:10:53.939705"], ["updated_at", "2017-08-03 19:10:53.939705"]]
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 22], ["created_at", "2017-08-03 19:10:53.943530"], ["updated_at", "2017-08-03 19:10:53.943530"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mLineItem Load (0.3ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 22]]
+  Rendered receipt_mailer/receipt_email.html.erb (3.2ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.3ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 349.2ms
+
+Sent mail to kvirani@gmail.com (20.8ms)
+Date: Thu, 03 Aug 2017 19:10:54 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <5983753e5a256_55d83f9be94b692c95753@ubuntu.mail>
+Subject: Order Number 22
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5983753e56af1_55d83f9be94b692c95652";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5983753e56af1_55d83f9be94b692c95652
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 22
+Thank you for your purchase!
+----==_mimepart_5983753e56af1_55d83f9be94b692c95652
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 22</h1>
+    <p>
+      Thank you for your purchase!
+      <ul>
+        <li>"#{line_item}"</li>
+      </ul>
+    </p>
+  </body>
+</html>
+----==_mimepart_5983753e56af1_55d83f9be94b692c95652--
+
+Redirected to http://localhost:3000/orders/22
+Completed 302 Found in 2091ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/orders/22" for 10.0.2.2 at 2017-08-03 19:10:54 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", 22]]
+  [1m[35mLineItem Load (0.4ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 22]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.8ms)
+  Rendered orders/show.html.erb within layouts/application (18.1ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.0ms)
+Completed 200 OK in 222ms (Views: 218.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/22" for 10.0.2.2 at 2017-08-03 19:12:49 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 22]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.5ms)
+  Rendered orders/show.html.erb within layouts/application (15.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.2ms)
+Completed 200 OK in 215ms (Views: 211.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:12:51 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (13.5ms)
+  Rendered products/index.html.erb within layouts/application (26.5ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.3ms)
+Completed 200 OK in 247ms (Views: 245.1ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:12:53 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"XmLUUYfrYCcSxUG5ZS1EUZkz7u/0Buy9DjszKeZRry0/YM5cqDhxJToao32xFWiVc0XBfSlYbsSbHVtwHKLuGA==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:12:53 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (12.0ms)
+  Rendered products/index.html.erb within layouts/application (25.1ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.1ms)
+Completed 200 OK in 287ms (Views: 284.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:12:55 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered carts/_item.html.erb (5.7ms)
+  Rendered carts/show.html.erb within layouts/application (32.7ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.0ms)
+Completed 200 OK in 247ms (Views: 245.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:13:04 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LZ3MoN31qqRGFtsDfAByZ+yodEJ8WrZKCmrbhPWx58xMn9at8ia7pm7JOceoOF6jBt5b0KEENDOfTLPdD0Km+Q==", "stripeToken"=>"tok_1AmolkEReceNAoo2jmDhX1db", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[35mProduct Load (0.6ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmoloEReceNAoo23avRqkBX"], ["created_at", "2017-08-03 19:13:05.502778"], ["updated_at", "2017-08-03 19:13:05.502778"]]
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 23], ["created_at", "2017-08-03 19:13:05.506366"], ["updated_at", "2017-08-03 19:13:05.506366"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 23]]
+  Rendered receipt_mailer/receipt_email.html.erb (2.5ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.7ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 274.0ms
+
+Sent mail to kvirani@gmail.com (10.9ms)
+Date: Thu, 03 Aug 2017 19:13:05 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <598375c1c1da7_55d83f9be953671c959e6@ubuntu.mail>
+Subject: Order Number 23
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_598375c1bfc81_55d83f9be953671c958fa";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_598375c1bfc81_55d83f9be953671c958fa
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 23
+Thank you for your purchase!
+----==_mimepart_598375c1bfc81_55d83f9be953671c958fa
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 23</h1>
+    <p>
+      Thank you for your purchase!
+      <ul>
+        <li>#&lt;LineItem:0x007f37d2abf868&gt;</li>
+      </ul>
+    </p>
+  </body>
+</html>
+----==_mimepart_598375c1bfc81_55d83f9be953671c958fa--
+
+Redirected to http://localhost:3000/orders/23
+Completed 302 Found in 1333ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/orders/23" for 10.0.2.2 at 2017-08-03 19:13:05 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mLineItem Load (0.8ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 23]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (3.7ms)
+  Rendered orders/show.html.erb within layouts/application (36.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 304ms (Views: 299.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:14:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (277.6ms)
+  Rendered products/index.html.erb within layouts/application (307.6ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (96.2ms)
+Completed 200 OK in 1459ms (Views: 1373.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:14:21 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (11.2ms)
+  Rendered products/index.html.erb within layouts/application (42.0ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.4ms)
+Completed 200 OK in 373ms (Views: 370.2ms | ActiveRecord: 1.5ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:14:24 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"8YEtEgz4LYFeW6zya3oniH81bKiGm8CmxddaCkC1uN+QgzcfIys8g3aETja/QgtMlUNDOlvFQt9Q8TJTukb56g==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:14:24 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (12.5ms)
+  Rendered products/index.html.erb within layouts/application (26.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.6ms)
+Completed 200 OK in 262ms (Views: 259.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:14:26 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered carts/_item.html.erb (7.1ms)
+  Rendered carts/show.html.erb within layouts/application (19.4ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.5ms)
+Completed 200 OK in 236ms (Views: 233.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:14:35 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AeM6dwirp+jHn0yoDhDIVWIOQhp+br+NhFr1/Pi2i3lg4SB6J3i26u9ArmzaKOSRiHhtiKMwPfQRfJ2lAkXKTA==", "stripeToken"=>"tok_1AmonCEReceNAoo23lHnMI3c", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmonHEReceNAoo2JbnpviQ8"], ["created_at", "2017-08-03 19:14:36.766745"], ["updated_at", "2017-08-03 19:14:36.766745"]]
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 24], ["created_at", "2017-08-03 19:14:36.770842"], ["updated_at", "2017-08-03 19:14:36.770842"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 24]]
+  Rendered receipt_mailer/receipt_email.html.erb (3.2ms)
+  Rendered receipt_mailer/receipt_email.text.erb (1.9ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 400.9ms
+
+Sent mail to kvirani@gmail.com (29.2ms)
+Date: Thu, 03 Aug 2017 19:14:37 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <5983761d41995_563c3fb95ed4ecc8244b0@ubuntu.mail>
+Subject: Order Number 24
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5983761d3da7b_563c3fb95ed4ecc8243b1";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5983761d3da7b_563c3fb95ed4ecc8243b1
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 24
+Thank you for your purchase!
+----==_mimepart_5983761d3da7b_563c3fb95ed4ecc8243b1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 24</h1>
+    <p>
+      Thank you for your purchase!
+      <ul>
+        <li>#&lt;LineItem:0x007f72bd1f0400&gt;</li>
+      </ul>
+    </p>
+  </body>
+</html>
+----==_mimepart_5983761d3da7b_563c3fb95ed4ecc8243b1--
+
+Redirected to http://localhost:3000/orders/24
+Completed 302 Found in 1686ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/orders/24" for 10.0.2.2 at 2017-08-03 19:14:37 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[35mOrder Load (0.5ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 24]]
+  [1m[35mProduct Load (0.6ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (5.1ms)
+  Rendered orders/show.html.erb within layouts/application (35.7ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 342ms (Views: 335.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:46 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (337.6ms)
+  Rendered products/index.html.erb within layouts/application (372.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (134.6ms)
+Completed 200 OK in 1561ms (Views: 1462.9ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:49 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (12.3ms)
+  Rendered products/index.html.erb within layouts/application (40.7ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (6.7ms)
+Completed 200 OK in 357ms (Views: 354.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:49 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (25.1ms)
+  Rendered products/index.html.erb within layouts/application (44.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.2ms)
+Completed 200 OK in 294ms (Views: 291.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:49 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (14.1ms)
+  Rendered products/index.html.erb within layouts/application (31.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.5ms)
+Completed 200 OK in 242ms (Views: 240.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:50 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (12.2ms)
+  Rendered products/index.html.erb within layouts/application (30.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.2ms)
+Completed 200 OK in 261ms (Views: 259.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:50 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.4ms)
+  Rendered products/index.html.erb within layouts/application (25.7ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 272ms (Views: 270.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:50 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (9.1ms)
+  Rendered products/index.html.erb within layouts/application (22.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 232ms (Views: 230.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:50 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.0ms)
+  Rendered products/index.html.erb within layouts/application (23.2ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 302ms (Views: 300.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:51 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (10.7ms)
+  Rendered products/index.html.erb within layouts/application (35.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 260ms (Views: 258.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:54 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (8.1ms)
+  Rendered products/index.html.erb within layouts/application (20.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (2.9ms)
+Completed 200 OK in 259ms (Views: 257.4ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:16:56 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"vSWd0wzT5jagj2mDD/wIiN3jF6QaY+OpWd+2gxHhxU/cJ4feIwD3NIhQi0fbxCRMN5U4Nsc9YdDM+d7a6xKEeg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:16:56 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (8.1ms)
+  Rendered products/index.html.erb within layouts/application (24.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.6ms)
+Completed 200 OK in 187ms (Views: 185.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:16:58 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered carts/_item.html.erb (3.7ms)
+  Rendered carts/show.html.erb within layouts/application (12.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.6ms)
+Completed 200 OK in 201ms (Views: 200.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:17:06 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SuZF9pLj0pdz9GL4myIY0gOKtqSCPKaCTdxFsNlgJLQr5F/7vTDDlVsrgDxPGjQW6fyZNl9iJPvY+i3pI5NlgQ==", "stripeToken"=>"tok_1AmopeEReceNAoo2rxKVWuJc", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1AmopiEReceNAoo2mXFtkEdv"], ["created_at", "2017-08-03 19:17:08.068380"], ["updated_at", "2017-08-03 19:17:08.068380"]]
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 25], ["created_at", "2017-08-03 19:17:08.071654"], ["updated_at", "2017-08-03 19:17:08.071654"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 25]]
+  Rendered receipt_mailer/receipt_email.html.erb (20.0ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 169.2ms
+Completed 500 Internal Server Error in 1784ms (ActiveRecord: 6.5ms)
+
+ActionView::Template::Error (undefined method `price' for #<LineItem:0x007fdfbd4b07e0>):
+     9:       Thank you for your purchase!
+    10:       <ul>
+    11:       <% @order.line_items.each do |line_item| %>
+    12:         <li><%= "#{line_item.product.name}: #{line_item.price} #{line_item.quantity}" %></li>
+    13:       <% end %>
+    14:       </ul>
+    15:     </p>
+  app/views/receipt_mailer/receipt_email.html.erb:12:in `block in _app_views_receipt_mailer_receipt_email_html_erb__2929711735181714652_70299464206520'
+  app/views/receipt_mailer/receipt_email.html.erb:11:in `_app_views_receipt_mailer_receipt_email_html_erb__2929711735181714652_70299464206520'
+  app/mailers/receipt_mailer.rb:7:in `receipt_email'
+  app/controllers/orders_controller.rb:13:in `create'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:18:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.1ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (292.1ms)
+  Rendered products/index.html.erb within layouts/application (327.6ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (84.3ms)
+Completed 200 OK in 1435ms (Views: 1354.8ms | ActiveRecord: 6.9ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:18:14 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"SgFN9DAR4t1sQFVPTrx2skpEspmo3YZJ3TyIqGo+iTwrA1f5H8Lz30Sft4uahFp2oDKdC3WDBDBIGuDxkM3ICQ==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:18:14 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (11.3ms)
+  Rendered products/index.html.erb within layouts/application (24.5ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (6.7ms)
+Completed 200 OK in 290ms (Views: 287.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:18:20 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (5.1ms)
+  Rendered carts/show.html.erb within layouts/application (17.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.5ms)
+Completed 200 OK in 328ms (Views: 325.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:18:28 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o4sKFxJwtJdO0ZmrpZ+UEY8UXxSBEj0L/AvfVN6Iaz/CiRAaPaOllWYOe29xp7jVZWJwhlxMv3JpLbcNJHsqCg==", "stripeToken"=>"tok_1AmoqxEReceNAoo23K35jpY5", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 197530], ["stripe_charge_id", "ch_1Amor2EReceNAoo2J5XvQCFG"], ["created_at", "2017-08-03 19:18:29.918887"], ["updated_at", "2017-08-03 19:18:29.918887"]]
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 2], ["item_price_cents", 98765], ["total_price_cents", 197530], ["order_id", 26], ["created_at", "2017-08-03 19:18:29.923691"], ["updated_at", "2017-08-03 19:18:29.923691"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mLineItem Load (0.3ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 26]]
+  Rendered receipt_mailer/receipt_email.html.erb (3.7ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.4ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 503.6ms
+
+Sent mail to kvirani@gmail.com (72.8ms)
+Date: Thu, 03 Aug 2017 19:18:30 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <5983770682529_56c93f85c74d385c445e8@ubuntu.mail>
+Subject: Order Number 26
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59837706778e7_56c93f85c74d385c444fc";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59837706778e7_56c93f85c74d385c444fc
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 26
+Thank you for your purchase!
+----==_mimepart_59837706778e7_56c93f85c74d385c444fc
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 26</h1>
+    <p>
+      Thank you for your purchase!
+      <ul>
+        <li>Electric Chair: 987.65 2</li>
+      </ul>
+    </p>
+  </body>
+</html>
+----==_mimepart_59837706778e7_56c93f85c74d385c444fc--
+
+Redirected to http://localhost:3000/orders/26
+Completed 302 Found in 1944ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/orders/26" for 10.0.2.2 at 2017-08-03 19:18:30 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", 26]]
+  [1m[35mLineItem Load (0.4ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 26]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered orders/_line_item.html.erb (3.4ms)
+  Rendered orders/show.html.erb within layouts/application (30.2ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (2.9ms)
+Completed 200 OK in 249ms (Views: 242.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/orders/26" for 10.0.2.2 at 2017-08-03 19:18:54 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mOrder Load (1.0ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 26]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 26]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (280.0ms)
+  Rendered orders/show.html.erb within layouts/application (404.7ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (113.1ms)
+Completed 200 OK in 1938ms (Views: 1779.9ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:00 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (22.9ms)
+  Rendered products/index.html.erb within layouts/application (45.4ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.2ms)
+Completed 200 OK in 325ms (Views: 321.8ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:19:02 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"LXVL0bGJNFtik106/LFkmTDiWU/jLhcZ4+nHI6zahGdMd1HcnlolWUpMv/4oiUhd2pR23T5wlWB2z696VinFUg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:03 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (13.4ms)
+  Rendered products/index.html.erb within layouts/application (25.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.2ms)
+Completed 200 OK in 296ms (Views: 293.8ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:19:04 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"GHCJIg6CYpPoEb+HQn8YywvsSuQfEsqAY79hvCsYBCN5cpMvIVFzkcDOXUOWRzQP4ZpldsJMSPn2mQnl0etFFg==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:04 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (10.9ms)
+  Rendered products/index.html.erb within layouts/application (26.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.7ms)
+Completed 200 OK in 276ms (Views: 274.2ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/cart/add_item?product_id=10" for 10.0.2.2 at 2017-08-03 19:19:08 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"42UO74ktRkKqkMoPgneN5pL+N0uzabVu6Boa0MC46U6CZxTipv5XQIJPKMtWT6EieIgY2W43Nxd9PHKJOkuoew==", "product_id"=>"10"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:08 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (14.2ms)
+  Rendered products/index.html.erb within layouts/application (33.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.1ms)
+Completed 200 OK in 334ms (Views: 332.4ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/cart/add_item?product_id=10" for 10.0.2.2 at 2017-08-03 19:19:09 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"42UO74ktRkKqkMoPgneN5pL+N0uzabVu6Boa0MC46U6CZxTipv5XQIJPKMtWT6EieIgY2W43Nxd9PHKJOkuoew==", "product_id"=>"10"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:09 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (18.3ms)
+  Rendered products/index.html.erb within layouts/application (36.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.8ms)
+Completed 200 OK in 385ms (Views: 383.0ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/cart/add_item?product_id=7" for 10.0.2.2 at 2017-08-03 19:19:11 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"F1Zoq7y/GvuUDAd4L3ut+Mnroa+yMzfyE72WYoYLYC12VHKmk2wL+bzT5bz7Q4E8I52OPW9ttYuGm/47fPghGA==", "product_id"=>"7"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:11 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (17.4ms)
+  Rendered products/index.html.erb within layouts/application (37.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.5ms)
+Completed 200 OK in 295ms (Views: 292.9ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/cart/add_item?product_id=7" for 10.0.2.2 at 2017-08-03 19:19:12 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"F1Zoq7y/GvuUDAd4L3ut+Mnroa+yMzfyE72WYoYLYC12VHKmk2wL+bzT5bz7Q4E8I52OPW9ttYuGm/47fPghGA==", "product_id"=>"7"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:19:12 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (14.1ms)
+  Rendered products/index.html.erb within layouts/application (33.6ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.3ms)
+Completed 200 OK in 443ms (Views: 440.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:19:14 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (5.6ms)
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered carts/_item.html.erb (2.6ms)
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered carts/_item.html.erb (3.1ms)
+  Rendered carts/show.html.erb within layouts/application (57.7ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.1ms)
+Completed 200 OK in 291ms (Views: 288.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/cart/remove_item?product_id=7" for 10.0.2.2 at 2017-08-03 19:19:16 +0000
+Processing by CartsController#remove_item as HTML
+  Parameters: {"authenticity_token"=>"DHQTdkzmTShl7C5tDv/UuQss3pV+C30M5qJNpQvHkVRtdgl7YzVcKk0zzKnax/h94VrxB6NV/3VzhCX88TTQYQ==", "product_id"=>"7"}
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:19:16 +0000
+Processing by CartsController#show as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered carts/_item.html.erb (2.5ms)
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered carts/_item.html.erb (3.0ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered carts/_item.html.erb (2.4ms)
+  Rendered carts/show.html.erb within layouts/application (46.8ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (4.1ms)
+Completed 200 OK in 338ms (Views: 335.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:19:24 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tFEssPSE0JLtP7vVdrbkweCSGu8HjC2bIzcJz7Fi4YTVUza921fBkMXgWRGijsgFCuQ1fdrSr+K2EWGWS5GgsQ==", "stripeToken"=>"tok_1AmorsEReceNAoo27uFkTRoI", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[35mProduct Load (1.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "10"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "10"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "7"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "kvirani@gmail.com"], ["total_cents", 824379], ["stripe_charge_id", "ch_1AmorwEReceNAoo2mZbvmRy4"], ["created_at", "2017-08-03 19:19:25.865215"], ["updated_at", "2017-08-03 19:19:25.865215"]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 11], ["quantity", 2], ["item_price_cents", 98765], ["total_price_cents", 197530], ["order_id", 27], ["created_at", "2017-08-03 19:19:25.870751"], ["updated_at", "2017-08-03 19:19:25.870751"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 10], ["quantity", 2], ["item_price_cents", 305200], ["total_price_cents", 610400], ["order_id", 27], ["created_at", "2017-08-03 19:19:25.875616"], ["updated_at", "2017-08-03 19:19:25.875616"]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["product_id", 7], ["quantity", 1], ["item_price_cents", 16449], ["total_price_cents", 16449], ["order_id", 27], ["created_at", "2017-08-03 19:19:25.879704"], ["updated_at", "2017-08-03 19:19:25.879704"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 27]]
+  Rendered receipt_mailer/receipt_email.html.erb (4.1ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.4ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 362.8ms
+
+Sent mail to kvirani@gmail.com (22.8ms)
+Date: Thu, 03 Aug 2017 19:19:26 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <5983773e4eb20_56f21d465886508f@ubuntu.mail>
+Subject: Order Number 27
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5983773e4ae9d_56f21d46588649bb";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5983773e4ae9d_56f21d46588649bb
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 27
+Thank you for your purchase!
+----==_mimepart_5983773e4ae9d_56f21d46588649bb
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 27</h1>
+    <p>
+      Thank you for your purchase!
+      <ul>
+        <li>Electric Chair: 987.65, x 2</li>
+        <li>Optimal Sleeping Bed: 3052.00, x 2</li>
+        <li>Modern Skateboards: 164.49, x 1</li>
+      </ul>
+    </p>
+  </body>
+</html>
+----==_mimepart_5983773e4ae9d_56f21d46588649bb--
+
+Redirected to http://localhost:3000/orders/27
+Completed 302 Found in 1676ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/orders/27" for 10.0.2.2 at 2017-08-03 19:19:26 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", 27]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 27]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered orders/_line_item.html.erb (2.1ms)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered orders/_line_item.html.erb (1.9ms)
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered orders/_line_item.html.erb (1.8ms)
+  Rendered orders/show.html.erb within layouts/application (36.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 195ms (Views: 191.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:22:21 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (261.5ms)
+  Rendered products/index.html.erb within layouts/application (293.6ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (91.2ms)
+Completed 200 OK in 1369ms (Views: 1296.9ms | ActiveRecord: 6.7ms)
+
+
+Started PUT "/cart/add_item?product_id=11" for 10.0.2.2 at 2017-08-03 19:22:26 +0000
+Processing by CartsController#add_item as HTML
+  Parameters: {"authenticity_token"=>"MWBgYh5FkNYXyYA5Fr/XUVjdM2JowPHPRhvDBh/0QeJQYnpvMZaB1D8WYv3Ch/uVsqsc8LWec7bTPatf5QcA1w==", "product_id"=>"11"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 19:22:26 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (12.6ms)
+  Rendered products/index.html.erb within layouts/application (38.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (5.5ms)
+Completed 200 OK in 412ms (Views: 410.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cart" for 10.0.2.2 at 2017-08-03 19:22:28 +0000
+Processing by CartsController#show as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered carts/_item.html.erb (4.6ms)
+  Rendered carts/show.html.erb within layouts/application (29.6ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.2ms)
+Completed 200 OK in 341ms (Views: 338.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2017-08-03 19:22:35 +0000
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0LCjlBFgGD893L3ob8Oey52SlXcOUwV6sy5Yb8XqNFexsrmZPrMJPRUDXyy7+7IPd+S65dMNhwMmCDA2Pxl1Yg==", "stripeToken"=>"tok_1AmouxEReceNAoo24J18zNQy", "stripeTokenType"=>"card", "stripeEmail"=>"kvirani@gmail.com"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", "11"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "orders" ("email", "total_cents", "stripe_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kvirani@gmail.com"], ["total_cents", 98765], ["stripe_charge_id", "ch_1Amov1EReceNAoo2zaW55u4S"], ["created_at", "2017-08-03 19:22:36.990134"], ["updated_at", "2017-08-03 19:22:36.990134"]]
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "line_items" ("product_id", "quantity", "item_price_cents", "total_price_cents", "order_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["product_id", 11], ["quantity", 1], ["item_price_cents", 98765], ["total_price_cents", 98765], ["order_id", 28], ["created_at", "2017-08-03 19:22:36.994040"], ["updated_at", "2017-08-03 19:22:36.994040"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mLineItem Load (0.3ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 28]]
+  Rendered receipt_mailer/receipt_email.html.erb (3.4ms)
+  Rendered receipt_mailer/receipt_email.text.erb (0.5ms)
+
+ReceiptMailer#receipt_email: processed outbound mail in 514.0ms
+
+Sent mail to kvirani@gmail.com (44.3ms)
+Date: Thu, 03 Aug 2017 19:22:37 +0000
+From: no-reply@jungle.com
+To: kvirani@gmail.com
+Message-ID: <598377fd9c8b7_575a3ff0ff5307d410752@ubuntu.mail>
+Subject: Order Number 28
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_598377fd9701a_575a3ff0ff5307d4106dc";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_598377fd9701a_575a3ff0ff5307d4106dc
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Order 28
+Thank you for your purchase!
+----==_mimepart_598377fd9701a_575a3ff0ff5307d4106dc
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order 28</h1>
+    <p>
+      Thank you for your purchase!
+      <ul>
+        <li>Electric Chair: 987.65, x 1</li>
+        <li>Order total: $987 </li>
+      </ul>
+    </p>
+  </body>
+</html>
+----==_mimepart_598377fd9701a_575a3ff0ff5307d4106dc--
+
+Redirected to http://localhost:3000/orders/28
+Completed 302 Found in 2380ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/orders/28" for 10.0.2.2 at 2017-08-03 19:22:37 +0000
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", 28]]
+  [1m[35mLineItem Load (0.4ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1  [["order_id", 28]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered orders/_line_item.html.erb (6.5ms)
+  Rendered orders/show.html.erb within layouts/application (30.2ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (3.3ms)
+Completed 200 OK in 344ms (Views: 338.2ms | ActiveRecord: 1.6ms)
