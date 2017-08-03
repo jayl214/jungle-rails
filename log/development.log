@@ -9601,3 +9601,1676 @@ Processing by CartsController#show as HTML
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
   Rendered layouts/_top_nav.html.erb (2.8ms)
 Completed 200 OK in 251ms (Views: 249.7ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReviews (20170803205418)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" character varying, "user_id" character varying, "description" character varying, "rating" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170803205418"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'line_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'orders'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'products'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateReviews (20170803205418)
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "reviews"
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170803205418"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'line_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'orders'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'products'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReviews (20170803205418)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170803205418"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'line_items'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'orders'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'products'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reviews'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", "1"], ["user_id", "1"], ["description", "SUCKS"], ["rating", "1"], ["created_at", "2017-08-03 21:30:01.786145"], ["updated_at", "2017-08-03 21:30:01.786145"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[36m (5026.3ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (108.6ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.4ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (257.5ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (3.4ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.5ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.2ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.2ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.6ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5046.5ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (107.9ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.3ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (264.0ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (1.9ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.9ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.8ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (3.2ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.0ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (5.1ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5037.0ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (106.0ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.4ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (257.0ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.3ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.0ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (5.6ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.2ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (5.7ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5032.7ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (110.4ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.4ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (263.2ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (3.5ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.6ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (11.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (4.6ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (6.0ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.3ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (8.1ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.1ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (6.2ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.0ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (5.4ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Apparel"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apparel"], ["created_at", "2017-08-03 21:52:01.481815"], ["updated_at", "2017-08-03 21:52:01.481815"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Electronics"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electronics"], ["created_at", "2017-08-03 21:52:01.486320"], ["updated_at", "2017-08-03 21:52:01.486320"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Furniture"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Furniture"], ["created_at", "2017-08-03 21:52:01.489993"], ["updated_at", "2017-08-03 21:52:01.489993"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Men's Classy shirt"], ["description", "Cronut street single-origin coffee vinegar vinyl thundercats hammock vegan. Cliche hashtag heirloom actually fixie messenger bag. Meh quinoa gentrify tattooed skateboard brooklyn offal. Wayfarers kale chips occupy whatever. Master direct trade brooklyn pop-up banjo. Polaroid fanny pack shoreditch fixie bespoke tattooed neutra."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-03 21:52:01.934035"], ["updated_at", "2017-08-03 21:52:01.934035"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Women's Zebra pants"], ["description", "Authentic cronut wayfarers actually ennui. Occupy chartreuse bicycle rights roof freegan 3 wolf moon aesthetic cardigan. Ennui food truck chartreuse wes anderson. Squid biodiesel green juice. Echo freegan diy. Tofu listicle distillery bushwick put a bird on it scenester crucifix."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-03 21:52:02.073839"], ["updated_at", "2017-08-03 21:52:02.073839"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Hat"], ["description", "Roof aesthetic artisan austin tumblr squid. Bushwick hammock selfies gentrify photo booth. Irony goth health tote bag fap franzen. Williamsburg leggings wolf dreamcatcher lo-fi kinfolk cray. Listicle 90's fanny pack waistcoat paleo yuccie humblebrag."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-03 21:52:02.272076"], ["updated_at", "2017-08-03 21:52:02.272076"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Socks"], ["description", "Flannel fap goth taxidermy put a bird on it schlitz ennui truffaut. Pork belly pug hammock brunch trust fund cliche fanny pack before they sold out. 3 wolf moon semiotics freegan readymade kogi austin hella hashtag. Locavore post-ironic chicharrones yuccie messenger bag narwhal."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-03 21:52:02.708706"], ["updated_at", "2017-08-03 21:52:02.708706"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Russian Spy Shoes"], ["description", "Food truck try-hard +1 yuccie. Actually mustache lo-fi drinking banh mi mlkshk five dollar toast. Raw denim chartreuse fanny pack before they sold out etsy fixie health flexitarian. Kitsch tote bag church-key yuccie yolo fashion axe kickstarter. Polaroid squid godard typewriter craft beer banh mi pinterest. Gentrify seitan craft beer fixie photo booth."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-03 21:52:02.889427"], ["updated_at", "2017-08-03 21:52:02.889427"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Human Feet Shoes"], ["description", "+1 viral chartreuse ugh try-hard cred. Distillery schlitz small batch cred vhs. Try-hard actually fap. Disrupt biodiesel single-origin coffee portland raw denim meditation."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-03 21:52:03.039054"], ["updated_at", "2017-08-03 21:52:03.039054"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Modern Skateboards"], ["description", "Brooklyn cred gastropub blue bottle pbr&b. Fixie pitchfork tumblr kickstarter. Bitters next level street gentrify artisan. Yuccie lo-fi green juice. Bitters heirloom roof biodiesel actually. Meggings irony next level occupy ugh."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-03 21:52:03.210737"], ["updated_at", "2017-08-03 21:52:03.210737"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hotdog Slicer"], ["description", "Retro meditation pour-over cardigan art party leggings. Portland pitchfork park polaroid 8-bit blue bottle pabst. Portland meditation gentrify health typewriter. Kinfolk seitan goth drinking celiac slow-carb food truck. Irony hoodie blog pug. Crucifix artisan hammock austin."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-03 21:52:03.389251"], ["updated_at", "2017-08-03 21:52:03.389251"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "World's Largest Smartwatch"], ["description", "Ugh meditation austin lomo mlkshk bicycle rights. 90's meh celiac tofu butcher direct trade. Butcher plaid bespoke poutine waistcoat distillery schlitz. Forage street irony disrupt. Quinoa beard iphone 90's."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-03 21:52:03.561565"], ["updated_at", "2017-08-03 21:52:03.561565"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Optimal Sleeping Bed"], ["description", "Celiac put a bird on it tousled fixie 8-bit. Fixie intelligentsia butcher retro. 3 wolf moon neutra portland loko poutine. Ramps vinyl twee lomo artisan vinegar. Humblebrag post-ironic squid put a bird on it intelligentsia art party deep v sartorial."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-03 21:52:03.752103"], ["updated_at", "2017-08-03 21:52:03.752103"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Electric Chair"], ["description", "Mustache roof scenester master ugh. Fap austin sartorial roof fashion axe godard direct trade. Chambray pork belly next level godard fingerstache locavore slow-carb. Etsy pug helvetica wes anderson. Gluten-free freegan vinyl. Tilde pug kogi."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-03 21:52:03.958633"], ["updated_at", "2017-08-03 21:52:03.958633"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Red Bookshelf"], ["description", "Goth portland seitan godard before they sold out. Narwhal vinyl distillery fingerstache biodiesel mixtape flexitarian helvetica. Farm-to-table carry tumblr lomo. Goth semiotics fanny pack selfies tilde shoreditch. Before they sold out shoreditch lo-fi selfies you probably haven't heard of them."], ["image", "furniture3.jpg"], ["quantity", 0], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-03 21:52:04.276849"], ["updated_at", "2017-08-03 21:52:04.276849"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Korey"], ["last_name", "Kutch"], ["email", "ramona@douglasbeahan.co"], ["password_digest", "$2a$10$DTFEn8gTCBgOy/DL5.M7wuZyAwXW6oNx4Qelqqs0droDN23L7nXz."], ["created_at", "2017-08-03 21:52:04.386361"], ["updated_at", "2017-08-03 21:52:04.386361"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Gwen"], ["last_name", "Breitenberg"], ["email", "mia.huel@maggio.io"], ["password_digest", "$2a$10$K2DrrGJynllRX/oJTTXKuugqBUmuCg4uiLcc6KN.aUbnk7Ncxmw.C"], ["created_at", "2017-08-03 21:52:04.452577"], ["updated_at", "2017-08-03 21:52:04.452577"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Eudora"], ["last_name", "O'Kon"], ["email", "dulce@windler.org"], ["password_digest", "$2a$10$f.wkGEEe4BEms34JNVKJlOdSZ2cvN9SDUSKmq38DViqzWVEaQ/fFC"], ["created_at", "2017-08-03 21:52:04.516015"], ["updated_at", "2017-08-03 21:52:04.516015"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Aditya"], ["last_name", "Nienow"], ["email", "maggie.borer@jones.com"], ["password_digest", "$2a$10$Eaw3rWfX/09vUTt.tO0PHOIrF0Mt35Vt.N7J6HZpoUhbrAbjgibSG"], ["created_at", "2017-08-03 21:52:04.577936"], ["updated_at", "2017-08-03 21:52:04.577936"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Lori"], ["last_name", "Koepp"], ["email", "angelo@champlin.name"], ["password_digest", "$2a$10$EF3QWC8brlMZV5rWtpfVreabCDPxmK7cmJmPh6cBA..UER1Urdr8q"], ["created_at", "2017-08-03 21:52:04.640966"], ["updated_at", "2017-08-03 21:52:04.640966"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Josefa"], ["last_name", "Purdy"], ["email", "destinee_cummerata@okunevaerdman.name"], ["password_digest", "$2a$10$T6V3MXUQeVAwNjdh5qL4eu7t2SiuxtHxIroSdjxwVyLDm5YZAUzrK"], ["created_at", "2017-08-03 21:52:04.703099"], ["updated_at", "2017-08-03 21:52:04.703099"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Tatum"], ["last_name", "Bode"], ["email", "jose.price@wisokyswaniawski.name"], ["password_digest", "$2a$10$zxdtc2s0o1FN/CULYtM8Ze5Afs7rDdRxjRsPuYfxvxT2GNpuGzQv6"], ["created_at", "2017-08-03 21:52:04.764555"], ["updated_at", "2017-08-03 21:52:04.764555"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jenifer"], ["last_name", "Huel"], ["email", "jerrod_gerhold@anderson.com"], ["password_digest", "$2a$10$zPLKLfsuxqRud5vvZ9qOl.YU7nAO3J81sf4jjVpTQ5baS/G2TMeB6"], ["created_at", "2017-08-03 21:52:04.824928"], ["updated_at", "2017-08-03 21:52:04.824928"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Earnest"], ["last_name", "Hahn"], ["email", "icie.bradtke@lehnerharris.net"], ["password_digest", "$2a$10$U44I5QW84xn/XriM1W62xONcSsbdwWPaIca2B0ctGlkIfsZIvKg/6"], ["created_at", "2017-08-03 21:52:04.884557"], ["updated_at", "2017-08-03 21:52:04.884557"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[36m (5064.2ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (107.9ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.5ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (265.4ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.7ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (5.7ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.0ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.0ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (6.5ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (7.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.3ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (3.7ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.2ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.0ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.5ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.7ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (3.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Apparel"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apparel"], ["created_at", "2017-08-03 21:58:43.493098"], ["updated_at", "2017-08-03 21:58:43.493098"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Electronics"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electronics"], ["created_at", "2017-08-03 21:58:43.499126"], ["updated_at", "2017-08-03 21:58:43.499126"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Furniture"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Furniture"], ["created_at", "2017-08-03 21:58:43.505396"], ["updated_at", "2017-08-03 21:58:43.505396"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Men's Classy shirt"], ["description", "Hammock church-key mustache green juice next level. Selvage quinoa whatever sartorial celiac post-ironic portland 90's. Pickled messenger bag iphone lo-fi. You probably haven't heard of them park typewriter synth xoxo retro cred. Cold-pressed truffaut mumblecore."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-03 21:58:44.126662"], ["updated_at", "2017-08-03 21:58:44.126662"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Women's Zebra pants"], ["description", "Vinyl cleanse cronut vegan green juice distillery. Knausgaard trust fund stumptown tattooed loko asymmetrical swag. Banjo pinterest next level. Plaid neutra cleanse. Offal pop-up celiac. Cleanse green juice blog cronut."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-03 21:58:44.324821"], ["updated_at", "2017-08-03 21:58:44.324821"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Hat"], ["description", "Vhs meditation tilde semiotics kickstarter raw denim pbr&b. Salvia literally brunch cleanse bespoke bicycle rights street. Pabst pbr&b pitchfork microdosing. Bespoke fap migas food truck taxidermy pop-up. Twee blog small batch lomo ethical chillwave. Chillwave tumblr salvia."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-03 21:58:44.562434"], ["updated_at", "2017-08-03 21:58:44.562434"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Socks"], ["description", "Chicharrones knausgaard iphone messenger bag aesthetic street bitters +1. Cleanse stumptown trust fund whatever chia plaid photo booth taxidermy. Xoxo authentic bespoke letterpress church-key. Migas pinterest cray whatever crucifix art party pop-up. Fanny pack paleo vinyl sartorial taxidermy kombucha etsy organic. Health kogi cleanse gluten-free."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-03 21:58:45.033259"], ["updated_at", "2017-08-03 21:58:45.033259"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Russian Spy Shoes"], ["description", "Food truck umami deep v echo crucifix kale chips. Retro goth xoxo butcher ennui single-origin coffee schlitz fingerstache. Cliche fixie actually blue bottle park intelligentsia. Offal kogi try-hard dreamcatcher ugh chillwave helvetica waistcoat. Truffaut humblebrag whatever."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-03 21:58:45.269886"], ["updated_at", "2017-08-03 21:58:45.269886"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Human Feet Shoes"], ["description", "Mlkshk photo booth disrupt fashion axe helvetica authentic kogi organic. Kinfolk shoreditch whatever. Keffiyeh swag fingerstache. Truffaut freegan cred."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-03 21:58:45.497148"], ["updated_at", "2017-08-03 21:58:45.497148"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Modern Skateboards"], ["description", "Roof pop-up vinyl cliche. Listicle mixtape austin shabby chic locavore swag roof. Gentrify pickled loko single-origin coffee fanny pack. Pickled tofu bicycle rights. Migas godard knausgaard banh mi chartreuse."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-03 21:58:45.783560"], ["updated_at", "2017-08-03 21:58:45.783560"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hotdog Slicer"], ["description", "90's everyday brooklyn. Fixie gluten-free freegan. Whatever quinoa plaid salvia. 3 wolf moon fashion axe art party goth. Twee 90's diy."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-03 21:58:45.996880"], ["updated_at", "2017-08-03 21:58:45.996880"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "World's Largest Smartwatch"], ["description", "Neutra pinterest art party kickstarter narwhal waistcoat tofu. Tote bag tattooed health. Microdosing pitchfork narwhal. Bushwick park +1 crucifix plaid offal chambray hella. Tilde viral loko skateboard. Umami offal schlitz shoreditch hammock health banh mi."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-03 21:58:46.213278"], ["updated_at", "2017-08-03 21:58:46.213278"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Optimal Sleeping Bed"], ["description", "Butcher offal slow-carb. Trust fund squid truffaut five dollar toast williamsburg selfies ramps tilde. Pinterest swag pug. Wes anderson godard street portland health hella."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-03 21:58:46.458658"], ["updated_at", "2017-08-03 21:58:46.458658"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Electric Chair"], ["description", "Pop-up drinking swag single-origin coffee franzen dreamcatcher crucifix. Keffiyeh pitchfork keytar jean shorts ennui gentrify ugh. Williamsburg gluten-free echo vinegar church-key brunch green juice. Mumblecore poutine pickled letterpress. Shabby chic celiac meggings tacos."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-03 21:58:46.707531"], ["updated_at", "2017-08-03 21:58:46.707531"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Red Bookshelf"], ["description", "Butcher gastropub goth ramps whatever diy freegan offal. Austin schlitz cornhole direct trade mumblecore. Lo-fi put a bird on it tote bag jean shorts cliche blue bottle helvetica health. Cray +1 food truck franzen microdosing occupy austin."], ["image", "furniture3.jpg"], ["quantity", 0], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-03 21:58:47.054549"], ["updated_at", "2017-08-03 21:58:47.054549"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Gerald"], ["last_name", "Volkman"], ["email", "richard.windler@kunze.name"], ["password_digest", "$2a$10$H4mcOp3qRdAda8YRsbyMdeoTwr3uxf71cOye19PwODOgFfA0aGRUu"], ["created_at", "2017-08-03 21:58:47.177328"], ["updated_at", "2017-08-03 21:58:47.177328"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Lillie"], ["last_name", "Bernier"], ["email", "edwin.labadie@sawaynkilback.com"], ["password_digest", "$2a$10$QSEUzBq8wLvOEBlzC6QMx.FPyK8ihgk9KQyKy.D.bK1Pmd4VqqjH6"], ["created_at", "2017-08-03 21:58:47.237415"], ["updated_at", "2017-08-03 21:58:47.237415"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Dimitri"], ["last_name", "Jacobs"], ["email", "rahsaan.farrell@durgan.co"], ["password_digest", "$2a$10$/qGamU.ys5e7BxA5QhKDX.553WonbxblN9vSSgK7KUa3SIt9UHToS"], ["created_at", "2017-08-03 21:58:47.295010"], ["updated_at", "2017-08-03 21:58:47.295010"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Osbaldo"], ["last_name", "Kuhlman"], ["email", "mallory.gislason@zieme.biz"], ["password_digest", "$2a$10$M42PZAtyuxabFAk1Ib5TKei/GasFB0MavvFLH5MspJOwm0IxQOLju"], ["created_at", "2017-08-03 21:58:47.352359"], ["updated_at", "2017-08-03 21:58:47.352359"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Tressa"], ["last_name", "Kihn"], ["email", "elliot.okuneva@kunde.com"], ["password_digest", "$2a$10$efufo1pSBgB2jQFXIlncW.PlrAq1Ek2QxRzXHNZE/TC.XidnT1Frq"], ["created_at", "2017-08-03 21:58:47.409764"], ["updated_at", "2017-08-03 21:58:47.409764"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Blair"], ["last_name", "Howe"], ["email", "armani_lockman@konopelski.co"], ["password_digest", "$2a$10$hmaCcf/s5qtw7CylnbnF8eN78TpSW/6T6aZapeAOTr/cRfajnILTa"], ["created_at", "2017-08-03 21:58:47.467265"], ["updated_at", "2017-08-03 21:58:47.467265"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Melisa"], ["last_name", "Ankunding"], ["email", "hanna@konopelski.info"], ["password_digest", "$2a$10$5jjWUtEKLHoW80LZbDN9NOnJ8kb5mkyQfc9KogNt.xpETi6JDtMPK"], ["created_at", "2017-08-03 21:58:47.525501"], ["updated_at", "2017-08-03 21:58:47.525501"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ollie"], ["last_name", "Hoppe"], ["email", "allen_jaskolski@gleasonwaters.name"], ["password_digest", "$2a$10$LVsILcK2bHyeXwMFY1XL4O8R7KOKb3NcsRjYr4AczxFJx3y/B20Fi"], ["created_at", "2017-08-03 21:58:47.583751"], ["updated_at", "2017-08-03 21:58:47.583751"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Emie"], ["last_name", "Beahan"], ["email", "marlon@anderson.org"], ["password_digest", "$2a$10$x.SFXl.FqeN.3m.xpxagW.aJPsXaEz85.h3V5RKzBxAXncS4vD.mO"], ["created_at", "2017-08-03 21:58:47.641053"], ["updated_at", "2017-08-03 21:58:47.641053"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews"
+  [1m[36m (5039.5ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (108.5ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.3ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (264.7ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (1.4ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (2.0ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.0ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (5.8ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Apparel"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apparel"], ["created_at", "2017-08-03 22:02:43.419002"], ["updated_at", "2017-08-03 22:02:43.419002"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Electronics"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electronics"], ["created_at", "2017-08-03 22:02:43.424439"], ["updated_at", "2017-08-03 22:02:43.424439"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Furniture"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Furniture"], ["created_at", "2017-08-03 22:02:43.428888"], ["updated_at", "2017-08-03 22:02:43.428888"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Men's Classy shirt"], ["description", "Sustainable cornhole taxidermy lumbersexual selfies iphone health gastropub. Celiac chambray wes anderson cleanse green juice godard flannel. Mixtape post-ironic stumptown. Semiotics readymade photo booth. Pinterest whatever carry before they sold out keytar pug literally. Fixie fap kale chips kickstarter."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-03 22:02:43.954458"], ["updated_at", "2017-08-03 22:02:43.954458"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Women's Zebra pants"], ["description", "Green juice diy you probably haven't heard of them food truck aesthetic tote bag helvetica swag. Bitters street godard. Pinterest fixie irony put a bird on it five dollar toast brunch try-hard. Marfa sriracha cornhole blog readymade flannel typewriter. Meh park you probably haven't heard of them. 3 wolf moon gentrify pop-up blue bottle small batch five dollar toast chambray."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-03 22:02:44.087570"], ["updated_at", "2017-08-03 22:02:44.087570"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Hat"], ["description", "Swag cornhole paleo butcher etsy. Fanny pack banh mi cray chia vinegar ethical plaid blue bottle. Ethical five dollar toast swag crucifix. Plaid art party ethical vinegar ennui readymade whatever synth."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-03 22:02:44.270036"], ["updated_at", "2017-08-03 22:02:44.270036"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Socks"], ["description", "Vegan diy marfa. Bespoke chartreuse forage heirloom mlkshk. Thundercats brunch williamsburg. Cred tattooed lomo. Hashtag aesthetic pbr&b."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-03 22:02:44.717744"], ["updated_at", "2017-08-03 22:02:44.717744"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Russian Spy Shoes"], ["description", "Intelligentsia pour-over brunch kombucha ramps letterpress jean shorts gastropub. Narwhal synth vinyl. Chambray blog beard goth. Meditation messenger bag pork belly master loko fap offal lomo. Echo gluten-free paleo iphone scenester. Iphone post-ironic migas poutine disrupt polaroid."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-03 22:02:44.892162"], ["updated_at", "2017-08-03 22:02:44.892162"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Human Feet Shoes"], ["description", "Kogi heirloom put a bird on it franzen cred five dollar toast. Loko distillery meditation. Biodiesel occupy pbr&b butcher neutra franzen intelligentsia messenger bag. Pork belly everyday single-origin coffee. Messenger bag fashion axe echo wayfarers readymade cleanse before they sold out. Whatever sartorial cred selfies wolf listicle."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-03 22:02:45.054440"], ["updated_at", "2017-08-03 22:02:45.054440"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Modern Skateboards"], ["description", "Dreamcatcher try-hard sartorial truffaut xoxo keffiyeh knausgaard tofu. Intelligentsia ramps banjo wes anderson. Ugh polaroid mumblecore messenger bag mlkshk semiotics letterpress. Brooklyn you probably haven't heard of them flannel cold-pressed listicle kitsch synth. Cornhole cray poutine. Cleanse cronut migas slow-carb ugh deep v."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-03 22:02:45.228296"], ["updated_at", "2017-08-03 22:02:45.228296"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hotdog Slicer"], ["description", "Blog lo-fi synth tilde. Pug green juice cray wolf lomo small batch put a bird on it blue bottle. Diy photo booth street slow-carb poutine gentrify pour-over deep v. Cleanse bicycle rights park kitsch goth fingerstache. Single-origin coffee asymmetrical narwhal mixtape. Biodiesel kinfolk sustainable."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-03 22:02:45.418599"], ["updated_at", "2017-08-03 22:02:45.418599"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "World's Largest Smartwatch"], ["description", "Quinoa drinking plaid post-ironic sartorial. Kale chips seitan blue bottle stumptown paleo aesthetic wayfarers wolf. Cray vhs bespoke chicharrones irony five dollar toast. Hoodie ugh cleanse gluten-free fixie. Roof taxidermy loko small batch diy crucifix celiac sustainable. Stumptown brunch hashtag austin."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-03 22:02:45.619683"], ["updated_at", "2017-08-03 22:02:45.619683"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Optimal Sleeping Bed"], ["description", "Migas shabby chic farm-to-table chambray portland. Trust fund aesthetic microdosing. Street pinterest roof drinking distillery. Church-key gastropub health. Put a bird on it blue bottle blog. You probably haven't heard of them lo-fi blue bottle park lumbersexual yolo irony disrupt."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-03 22:02:45.773685"], ["updated_at", "2017-08-03 22:02:45.773685"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Electric Chair"], ["description", "Cardigan polaroid everyday. Keytar thundercats brooklyn. Echo keytar sustainable occupy. Fap vinegar meh. Kale chips pickled bicycle rights fashion axe squid gluten-free salvia ethical."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-03 22:02:45.952524"], ["updated_at", "2017-08-03 22:02:45.952524"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Red Bookshelf"], ["description", "8-bit brooklyn carry marfa scenester hella meggings echo. Echo celiac tousled brooklyn portland. Food truck chambray wayfarers farm-to-table. Health selfies knausgaard wolf. Fingerstache shabby chic schlitz selvage heirloom."], ["image", "furniture3.jpg"], ["quantity", 0], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-03 22:02:46.242881"], ["updated_at", "2017-08-03 22:02:46.242881"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Willy"], ["last_name", "Crooks"], ["email", "magdalena.schmitt@brownhudson.org"], ["password_digest", "$2a$10$pjKcUW/UPLU94B3UpCj2g.cxIjwhkv86ymZ.tbpkBAcZLWFp8iv0C"], ["created_at", "2017-08-03 22:02:46.343146"], ["updated_at", "2017-08-03 22:02:46.343146"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Herman"], ["last_name", "Kris"], ["email", "oda.raynor@breitenberg.com"], ["password_digest", "$2a$10$0AC4S78OI.g1ZCWFIYmnYeVxmQntRT4Sl78AWYq2Di6XEgtMFnjde"], ["created_at", "2017-08-03 22:02:46.404587"], ["updated_at", "2017-08-03 22:02:46.404587"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Gerald"], ["last_name", "Hickle"], ["email", "oscar.goodwin@paucek.info"], ["password_digest", "$2a$10$rOweXljxhFW4.ly0PbYxxu.Ml5ubTbdac9bQk5qciWkHh469mTQwO"], ["created_at", "2017-08-03 22:02:46.461980"], ["updated_at", "2017-08-03 22:02:46.461980"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Audra"], ["last_name", "Breitenberg"], ["email", "florida.larkin@lebsackbalistreri.name"], ["password_digest", "$2a$10$JVfE/dLnmtM8TljHDXjZm.BifXgD74KpSzY7.R9gntnlhO4VYQ6J2"], ["created_at", "2017-08-03 22:02:46.520312"], ["updated_at", "2017-08-03 22:02:46.520312"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Pattie"], ["last_name", "Jaskolski"], ["email", "alexander@vonruedengreenfelder.org"], ["password_digest", "$2a$10$QKlIswGanqMpJd3PYJK.k.cvMJ1e3Eu5o2MvTp.Jnp0Dkui7UjhtW"], ["created_at", "2017-08-03 22:02:46.577831"], ["updated_at", "2017-08-03 22:02:46.577831"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Maiya"], ["last_name", "Lockman"], ["email", "katheryn_kertzmann@wolfblock.co"], ["password_digest", "$2a$10$zHXZEjtq4GRSlMdUgywxbeBZI4ee7KooX.DFwFcvk0YK9L9lPBMCO"], ["created_at", "2017-08-03 22:02:46.635205"], ["updated_at", "2017-08-03 22:02:46.635205"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Lilla"], ["last_name", "Goodwin"], ["email", "patsy_huel@pollichsimonis.biz"], ["password_digest", "$2a$10$lqz4v1sPeXosI0c/2KGr/uO3zKBDXG0vaCvrk.9m740a8tv.PyNYy"], ["created_at", "2017-08-03 22:02:46.697243"], ["updated_at", "2017-08-03 22:02:46.697243"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Omer"], ["last_name", "Jacobs"], ["email", "jayda.dare@prosacco.io"], ["password_digest", "$2a$10$yBM43gARgo8JcRuS0FF3u..u8uU9YGWWUIp1TeJu9A/g4n83MHPz6"], ["created_at", "2017-08-03 22:02:46.757547"], ["updated_at", "2017-08-03 22:02:46.757547"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Ava"], ["last_name", "Howe"], ["email", "antonetta.oconner@stehrdamore.name"], ["password_digest", "$2a$10$62JPzoZzG8v1/GjtD601MOKCHUQqEAT0tjeUfFoimA2ObpjhRatee"], ["created_at", "2017-08-03 22:02:46.815145"], ["updated_at", "2017-08-03 22:02:46.815145"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews"
+  [1m[36m (5023.6ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (105.2ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.3ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (262.9ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (4.1ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (3.2ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (5.9ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.2ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.1ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (9.9ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Apparel"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apparel"], ["created_at", "2017-08-03 22:04:14.265969"], ["updated_at", "2017-08-03 22:04:14.265969"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Electronics"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electronics"], ["created_at", "2017-08-03 22:04:14.270767"], ["updated_at", "2017-08-03 22:04:14.270767"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Furniture"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Furniture"], ["created_at", "2017-08-03 22:04:14.274631"], ["updated_at", "2017-08-03 22:04:14.274631"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Men's Classy shirt"], ["description", "Brooklyn asymmetrical paleo selvage put a bird on it authentic umami mumblecore. Shabby chic swag ennui tumblr yuccie xoxo listicle salvia. Diy quinoa single-origin coffee narwhal wes anderson godard direct trade aesthetic. Scenester austin umami master biodiesel fashion axe. Deep v squid crucifix quinoa twee venmo five dollar toast."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-03 22:04:14.725781"], ["updated_at", "2017-08-03 22:04:14.725781"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Women's Zebra pants"], ["description", "Food truck selfies blog readymade viral. Polaroid health bitters skateboard everyday meh. Cornhole migas celiac sartorial literally meditation. Craft beer fap blue bottle tumblr tilde 90's. Celiac ugh wes anderson tousled art party polaroid tote bag you probably haven't heard of them. Cleanse goth artisan post-ironic."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-03 22:04:14.867970"], ["updated_at", "2017-08-03 22:04:14.867970"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Hat"], ["description", "Loko vinyl mustache. Bicycle rights swag umami. Shoreditch raw denim forage. Twee truffaut freegan vice blue bottle microdosing. Chicharrones tofu narwhal squid deep v cronut. Church-key pitchfork food truck."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-03 22:04:15.038640"], ["updated_at", "2017-08-03 22:04:15.038640"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Socks"], ["description", "Squid vice +1 quinoa. Bitters hoodie vegan. Echo kinfolk meggings diy trust fund biodiesel small batch polaroid. Pour-over selfies mumblecore green juice hashtag ugh ennui."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-03 22:04:15.417273"], ["updated_at", "2017-08-03 22:04:15.417273"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Russian Spy Shoes"], ["description", "Vhs green juice leggings helvetica meggings. Fanny pack disrupt jean shorts. Craft beer lo-fi post-ironic jean shorts cronut art party. Etsy polaroid quinoa vice ennui keffiyeh. Vhs tumblr diy."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-03 22:04:15.589423"], ["updated_at", "2017-08-03 22:04:15.589423"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Human Feet Shoes"], ["description", "Godard plaid asymmetrical blog. Salvia polaroid venmo lomo. Meh tacos post-ironic jean shorts bicycle rights pop-up yuccie photo booth. Health five dollar toast roof distillery blue bottle vhs listicle offal. Chillwave taxidermy banjo quinoa forage umami."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-03 22:04:15.739636"], ["updated_at", "2017-08-03 22:04:15.739636"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Modern Skateboards"], ["description", "Tattooed gentrify skateboard tilde hoodie sustainable. Sriracha swag cliche plaid. Next level tattooed austin meditation tousled pinterest schlitz. Viral stumptown farm-to-table ethical listicle butcher. Normcore biodiesel single-origin coffee kickstarter roof. Waistcoat seitan tumblr chia small batch before they sold out etsy lomo."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-03 22:04:15.906810"], ["updated_at", "2017-08-03 22:04:15.906810"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hotdog Slicer"], ["description", "Lumbersexual pork belly kickstarter banh mi pop-up. Pickled chia farm-to-table xoxo waistcoat 90's. Letterpress knausgaard echo crucifix occupy literally cray vice. Godard organic tote bag."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-03 22:04:16.072602"], ["updated_at", "2017-08-03 22:04:16.072602"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "World's Largest Smartwatch"], ["description", "Fashion axe gastropub lomo bitters. Vinyl portland jean shorts xoxo photo booth swag. Cred venmo knausgaard intelligentsia vinyl chartreuse. Viral tote bag cardigan."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-03 22:04:16.228850"], ["updated_at", "2017-08-03 22:04:16.228850"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Optimal Sleeping Bed"], ["description", "Cred cronut godard artisan. Letterpress marfa skateboard lumbersexual messenger bag wes anderson. Normcore cray narwhal humblebrag mixtape shabby chic etsy. Fanny pack flexitarian sartorial park ugh."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-03 22:04:16.389436"], ["updated_at", "2017-08-03 22:04:16.389436"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Electric Chair"], ["description", "Listicle cold-pressed street xoxo pug seitan. Mumblecore fixie raw denim biodiesel food truck. Heirloom everyday hashtag butcher etsy. Green juice craft beer lo-fi. Selfies hashtag street yr roof. Portland vinegar artisan."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-03 22:04:16.571379"], ["updated_at", "2017-08-03 22:04:16.571379"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Red Bookshelf"], ["description", "Sartorial shoreditch leggings marfa viral. Shabby chic goth knausgaard authentic. Hella ennui pug scenester locavore. Scenester xoxo narwhal tousled pork belly kinfolk loko."], ["image", "furniture3.jpg"], ["quantity", 0], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-03 22:04:16.853279"], ["updated_at", "2017-08-03 22:04:16.853279"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jaida"], ["last_name", "Schoen"], ["email", "keyon_block@spinka.org"], ["password_digest", "$2a$10$Gy74MrM3wkSg.py8ySnNkeZaaSHFe13GYHxUAmn4naj7RJo.5pxDC"], ["created_at", "2017-08-03 22:04:16.956962"], ["updated_at", "2017-08-03 22:04:16.956962"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "April"], ["last_name", "Dare"], ["email", "samantha_gislason@koeppchristiansen.net"], ["password_digest", "$2a$10$3fWZJZZ867WBcH5i2Ejl8O9E82fe62.7IOJ.JWbatlQHOcQb5BOTG"], ["created_at", "2017-08-03 22:04:17.015189"], ["updated_at", "2017-08-03 22:04:17.015189"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Renee"], ["last_name", "Leannon"], ["email", "columbus@senger.biz"], ["password_digest", "$2a$10$b0b3wJNND4Hs0TBIDjpBeOf6J/U70GTQyB0LnL/XPPmo2yEPuGKhi"], ["created_at", "2017-08-03 22:04:17.073019"], ["updated_at", "2017-08-03 22:04:17.073019"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Alba"], ["last_name", "Gislason"], ["email", "thalia@gulgowskiadams.org"], ["password_digest", "$2a$10$IaIds78p2Pdhl.mjdZ.mQeljHmYQUHE/IVcUq9iDK7HpLRWOq/Ky2"], ["created_at", "2017-08-03 22:04:17.130443"], ["updated_at", "2017-08-03 22:04:17.130443"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Gino"], ["last_name", "Wintheiser"], ["email", "makayla@rodriguez.io"], ["password_digest", "$2a$10$jtuHdLChhusEx8iaN3ZOSu2h6RMO4s..rU1kgkAdZeWXILFoXIk5K"], ["created_at", "2017-08-03 22:04:17.187904"], ["updated_at", "2017-08-03 22:04:17.187904"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Shaylee"], ["last_name", "Fritsch"], ["email", "clifford.keebler@hoeger.info"], ["password_digest", "$2a$10$y.FjEkWjRhQOsI5FFuTxqudBjXj51BfxCAKF0mY5t27IoVcJkk1A2"], ["created_at", "2017-08-03 22:04:17.245376"], ["updated_at", "2017-08-03 22:04:17.245376"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Louisa"], ["last_name", "Harber"], ["email", "darby@ryan.com"], ["password_digest", "$2a$10$J4olgYcJ2TWuEt/sCvf4O.Sm/w.CvGNitiS0NjHAzblEmKW8zxf.O"], ["created_at", "2017-08-03 22:04:17.302655"], ["updated_at", "2017-08-03 22:04:17.302655"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nakia"], ["last_name", "Predovic"], ["email", "morris.medhurst@spinka.io"], ["password_digest", "$2a$10$zLMt5G2jVeM8deY7cFiexeRqTIgssjSc4RQXayLgyv7x4/0sJ.qLS"], ["created_at", "2017-08-03 22:04:17.361388"], ["updated_at", "2017-08-03 22:04:17.361388"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Oren"], ["last_name", "Haley"], ["email", "kaitlyn.pagac@hegmann.co"], ["password_digest", "$2a$10$Oc3AqoA9DMhm0RkCno81Je8sn9bWXxtvOFOTEtJ89tWDv2jFr649q"], ["created_at", "2017-08-03 22:04:17.425511"], ["updated_at", "2017-08-03 22:04:17.425511"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 12], ["user_id", 4], ["description", "Park 8-bit kickstarter. Park vegan viral pbr&b keffiyeh. Cronut portland five dollar toast ennui. Hoodie fap actually selvage fashion axe. Bespoke bushwick listicle."], ["rating", 4], ["created_at", "2017-08-03 22:04:17.437393"], ["updated_at", "2017-08-03 22:04:17.437393"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 12], ["user_id", 7], ["description", "Helvetica goth chartreuse. Plaid sriracha butcher. Church-key marfa listicle authentic chambray tattooed. Cliche 3 wolf moon direct trade."], ["rating", 2], ["created_at", "2017-08-03 22:04:17.440159"], ["updated_at", "2017-08-03 22:04:17.440159"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (5099.0ms)[0m  [1mDROP DATABASE IF EXISTS "jungle_development"[0m
+  [1m[35m (107.9ms)[0m  DROP DATABASE IF EXISTS "jungle_test"
+  [1m[36m (0.3ms)[0m  [1mCREATE DATABASE "jungle_development" ENCODING = 'unicode'[0m
+  [1m[35m (256.6ms)[0m  CREATE DATABASE "jungle_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "categories" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "line_items" CASCADE
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (2.9ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "orders" CASCADE
+  [1m[36m (9.4ms)[0m  [1mCREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "products" CASCADE
+  [1m[36m (9.9ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "reviews" CASCADE[0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.7ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.2ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "line_items" ("id" serial primary key, "order_id" integer, "product_id" integer, "quantity" integer, "item_price_cents" integer, "total_price_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE  INDEX  "index_line_items_on_order_id" ON "line_items" USING btree ("order_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_line_items_on_product_id" ON "line_items" USING btree ("product_id")[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "orders" ("id" serial primary key, "total_cents" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "stripe_charge_id" character varying, "email" character varying) 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "name" character varying, "description" text, "image" character varying, "price_cents" integer, "quantity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "category_id" integer) [0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_products_on_category_id" ON "products" USING btree ("category_id")
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "product_id" integer, "user_id" integer, "description" character varying, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_2dc2e5c22c"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "line_items" ADD CONSTRAINT "fk_rails_11e15d5c6b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "products" ADD CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (3.6ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170803205418')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621152728')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160621153741')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160621153855')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160622113553')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623110200')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160623222000')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160625062916')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170802213233')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Apparel"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Apparel"], ["created_at", "2017-08-03 22:05:23.216111"], ["updated_at", "2017-08-03 22:05:23.216111"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Electronics"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Electronics"], ["created_at", "2017-08-03 22:05:23.220985"], ["updated_at", "2017-08-03 22:05:23.220985"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = $1 LIMIT 1[0m  [["name", "Furniture"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Furniture"], ["created_at", "2017-08-03 22:05:23.224895"], ["updated_at", "2017-08-03 22:05:23.224895"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Men's Classy shirt"], ["description", "Tofu tacos viral mumblecore master. Kogi mustache waistcoat actually truffaut cliche. Health disrupt scenester kitsch meh selfies. Portland lomo blue bottle yuccie readymade disrupt trust fund. Health post-ironic selfies shabby chic you probably haven't heard of them hashtag ramps street."], ["image", "apparel1.jpg"], ["quantity", 10], ["price_cents", 6499], ["category_id", 1], ["created_at", "2017-08-03 22:05:23.675870"], ["updated_at", "2017-08-03 22:05:23.675870"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Women's Zebra pants"], ["description", "Roof letterpress marfa tofu mlkshk. Waistcoat tousled tofu diy church-key bicycle rights occupy cronut. Farm-to-table skateboard brunch. You probably haven't heard of them fashion axe umami lo-fi typewriter. Cronut beard skateboard forage."], ["image", "apparel2.jpg"], ["quantity", 18], ["price_cents", 12499], ["category_id", 1], ["created_at", "2017-08-03 22:05:23.810426"], ["updated_at", "2017-08-03 22:05:23.810426"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Hipster Hat"], ["description", "Helvetica lumbersexual neutra pinterest. Deep v vegan kickstarter ennui leggings yr tattooed. Tattooed carry vegan. Ennui pour-over irony try-hard keytar yolo tumblr banh mi."], ["image", "apparel3.jpg"], ["quantity", 4], ["price_cents", 3449], ["category_id", 1], ["created_at", "2017-08-03 22:05:23.992582"], ["updated_at", "2017-08-03 22:05:23.992582"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hipster Socks"], ["description", "Deep v forage tofu pabst tumblr marfa. Venmo narwhal quinoa kogi chia fashion axe portland five dollar toast. Fap tilde quinoa farm-to-table art party photo booth. Biodiesel meh tilde polaroid. Hashtag migas cold-pressed keffiyeh flexitarian. Trust fund selvage offal gastropub cornhole."], ["image", "apparel4.jpg"], ["quantity", 8], ["price_cents", 2500], ["category_id", 1], ["created_at", "2017-08-03 22:05:24.363616"], ["updated_at", "2017-08-03 22:05:24.363616"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Russian Spy Shoes"], ["description", "Etsy bushwick intelligentsia blog wayfarers flannel normcore. Everyday meh messenger bag roof pour-over. Cornhole viral before they sold out sustainable tattooed. Listicle tilde food truck actually waistcoat sriracha leggings. Thundercats park bitters pop-up microdosing keffiyeh mumblecore. Hoodie semiotics wolf lomo etsy authentic."], ["image", "apparel5.jpg"], ["quantity", 8], ["price_cents", 122500], ["category_id", 1], ["created_at", "2017-08-03 22:05:24.534680"], ["updated_at", "2017-08-03 22:05:24.534680"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Human Feet Shoes"], ["description", "Pork belly shabby chic paleo. Semiotics kickstarter intelligentsia taxidermy listicle photo booth. Shabby chic thundercats vinegar street umami plaid meditation occupy. Biodiesel xoxo umami sriracha."], ["image", "apparel6.jpg"], ["quantity", 82], ["price_cents", 22450], ["category_id", 1], ["created_at", "2017-08-03 22:05:24.668112"], ["updated_at", "2017-08-03 22:05:24.668112"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Modern Skateboards"], ["description", "Diy hella kombucha etsy trust fund distillery normcore put a bird on it. Blue bottle selfies health migas hammock put a bird on it master raw denim. Pork belly blog lomo meh. Hoodie viral fashion axe banh mi fixie next level gluten-free chambray. Small batch pitchfork seitan. Etsy helvetica fixie."], ["image", "electronics1.jpg"], ["quantity", 40], ["price_cents", 16449], ["category_id", 2], ["created_at", "2017-08-03 22:05:24.821641"], ["updated_at", "2017-08-03 22:05:24.821641"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Hotdog Slicer"], ["description", "Goth listicle pitchfork squid yr seitan cardigan bespoke. Kinfolk vinyl bicycle rights. Tumblr tacos kinfolk portland humblebrag. Brooklyn heirloom direct trade locavore lo-fi ennui bushwick. Ramps everyday raw denim bicycle rights tofu taxidermy etsy. Bespoke mixtape vinegar yuccie."], ["image", "electronics2.jpg"], ["quantity", 3], ["price_cents", 2600], ["category_id", 2], ["created_at", "2017-08-03 22:05:24.983283"], ["updated_at", "2017-08-03 22:05:24.983283"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "World's Largest Smartwatch"], ["description", "Pickled normcore wolf 90's meh cornhole yuccie. Hammock church-key 8-bit. Forage chillwave keffiyeh +1. Normcore blue bottle fingerstache stumptown flexitarian five dollar toast. Tousled locavore seitan. Taxidermy kogi bespoke tacos etsy disrupt."], ["image", "electronics3.jpg"], ["quantity", 32], ["price_cents", 202629], ["category_id", 2], ["created_at", "2017-08-03 22:05:25.142886"], ["updated_at", "2017-08-03 22:05:25.142886"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Optimal Sleeping Bed"], ["description", "Selfies artisan pour-over venmo cronut gluten-free retro crucifix. Lumbersexual street intelligentsia hella cronut. Cred loko pinterest pour-over taxidermy. Listicle squid cardigan."], ["image", "furniture1.jpg"], ["quantity", 320], ["price_cents", 305200], ["category_id", 3], ["created_at", "2017-08-03 22:05:25.310010"], ["updated_at", "2017-08-03 22:05:25.310010"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Electric Chair"], ["description", "Leggings cardigan intelligentsia photo booth five dollar toast. Portland echo brooklyn before they sold out. Mixtape tote bag hella tumblr whatever salvia neutra next level. Direct trade meditation wayfarers hoodie chambray franzen chillwave actually. Deep v sustainable letterpress iphone."], ["image", "furniture2.jpg"], ["quantity", 2], ["price_cents", 98765], ["category_id", 3], ["created_at", "2017-08-03 22:05:25.486048"], ["updated_at", "2017-08-03 22:05:25.486048"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "products" ("name", "description", "image", "quantity", "price_cents", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Red Bookshelf"], ["description", "Tote bag raw denim pop-up schlitz. Gentrify kogi church-key. Normcore quinoa five dollar toast flannel keytar. Actually bushwick vinegar."], ["image", "furniture3.jpg"], ["quantity", 0], ["price_cents", 248375], ["category_id", 3], ["created_at", "2017-08-03 22:05:25.771946"], ["updated_at", "2017-08-03 22:05:25.771946"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Emerson"], ["last_name", "Heathcote"], ["email", "kathlyn_pfannerstill@schummbeahan.org"], ["password_digest", "$2a$10$ZLj7Z85dfd/Lk91d7ez3xePuaZlTcaEU7vqQNXY5d4SKbPt1xEauS"], ["created_at", "2017-08-03 22:05:25.886971"], ["updated_at", "2017-08-03 22:05:25.886971"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jon"], ["last_name", "Ritchie"], ["email", "creola_johnson@collier.info"], ["password_digest", "$2a$10$iDoOPO4nA5.zPYtp2ODmgOv2LI269MgerCCeJ8DIFTXn6OsPeq.dG"], ["created_at", "2017-08-03 22:05:25.945093"], ["updated_at", "2017-08-03 22:05:25.945093"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Norris"], ["last_name", "Abbott"], ["email", "kristoffer@huels.name"], ["password_digest", "$2a$10$cNZ5IRykQ3zozRTBQMbq..DpSTv5cwXhaN1wQ.3civiSsQ/R6eF6m"], ["created_at", "2017-08-03 22:05:26.006880"], ["updated_at", "2017-08-03 22:05:26.006880"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Seamus"], ["last_name", "Collier"], ["email", "queenie@botsford.biz"], ["password_digest", "$2a$10$ZjnGyTdtlUZ47aT9y.4AHOOGUlDWAIgIY6HI/hol0/g8DwT3MNVo."], ["created_at", "2017-08-03 22:05:26.067435"], ["updated_at", "2017-08-03 22:05:26.067435"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Kameron"], ["last_name", "Schuster"], ["email", "stefan.runte@frami.co"], ["password_digest", "$2a$10$e10KekBUSqh.mZxdR/7ZS.gKqpKoMB3D4X5.d401ilD1iPsy.39KS"], ["created_at", "2017-08-03 22:05:26.126007"], ["updated_at", "2017-08-03 22:05:26.126007"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Lorenz"], ["last_name", "Weissnat"], ["email", "river@greenholtfarrell.com"], ["password_digest", "$2a$10$gnd4xk4gxJ2aF0NiELhFVuOuFajfleFfoOjDctn7VZ0vMV84kDm.W"], ["created_at", "2017-08-03 22:05:26.183538"], ["updated_at", "2017-08-03 22:05:26.183538"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Corene"], ["last_name", "Little"], ["email", "vinnie_armstrong@feeneydickinson.name"], ["password_digest", "$2a$10$KRP0SxHNpSDUs9JfpQsF/.y5nNRcdJrR2VQXbvTP77xC/u8cmJ.0."], ["created_at", "2017-08-03 22:05:26.241478"], ["updated_at", "2017-08-03 22:05:26.241478"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jammie"], ["last_name", "Dickens"], ["email", "eula.dubuque@anderson.co"], ["password_digest", "$2a$10$2Gj4mnG9sYeo4XL92tYwZegz5Nx49CFZtcQ98hfOzQFql8iQyPD0y"], ["created_at", "2017-08-03 22:05:26.299091"], ["updated_at", "2017-08-03 22:05:26.299091"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Ernestine"], ["last_name", "Keeling"], ["email", "maida@mohr.io"], ["password_digest", "$2a$10$53WWqgvAVG9it8ffb0KPuebl5ARYi9/HtpSFB8YLIKhlGqKq0R8L."], ["created_at", "2017-08-03 22:05:26.359708"], ["updated_at", "2017-08-03 22:05:26.359708"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 7], ["user_id", 2], ["description", "Chillwave cornhole mixtape next level gastropub normcore artisan pbr&b. Pork belly typewriter master vinyl. Crucifix cleanse skateboard roof tattooed narwhal meditation neutra."], ["rating", 5], ["created_at", "2017-08-03 22:05:26.378171"], ["updated_at", "2017-08-03 22:05:26.378171"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 3], ["user_id", 6], ["description", "Heirloom raw denim five dollar toast occupy shoreditch. Cray kinfolk quinoa paleo. Pbr&b freegan helvetica vinegar. Chambray brooklyn jean shorts you probably haven't heard of them pug skateboard yolo. Microdosing pickled meditation taxidermy goth."], ["rating", 3], ["created_at", "2017-08-03 22:05:26.380976"], ["updated_at", "2017-08-03 22:05:26.380976"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 2], ["user_id", 7], ["description", "Schlitz post-ironic butcher chicharrones taxidermy direct trade. Chicharrones ethical yuccie. Health kitsch lumbersexual. Before they sold out sustainable kale chips church-key."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.383278"], ["updated_at", "2017-08-03 22:05:26.383278"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 8], ["user_id", 8], ["description", "Heirloom forage selfies. Roof next level bespoke lo-fi 8-bit cronut. Mumblecore green juice humblebrag single-origin coffee biodiesel aesthetic paleo."], ["rating", 1], ["created_at", "2017-08-03 22:05:26.385505"], ["updated_at", "2017-08-03 22:05:26.385505"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 8], ["user_id", 1], ["description", "Kitsch fanny pack ethical. Swag dreamcatcher tousled. Ethical 8-bit bushwick you probably haven't heard of them banh mi street. Church-key ennui meh microdosing. Mixtape fashion axe shoreditch forage."], ["rating", 3], ["created_at", "2017-08-03 22:05:26.387709"], ["updated_at", "2017-08-03 22:05:26.387709"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 4], ["user_id", 1], ["description", "Quinoa dreamcatcher church-key. Paleo biodiesel iphone schlitz pbr&b slow-carb. Hella chambray vhs vinyl leggings."], ["rating", 3], ["created_at", "2017-08-03 22:05:26.390067"], ["updated_at", "2017-08-03 22:05:26.390067"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 1], ["user_id", 3], ["description", "Heirloom before they sold out fap wayfarers deep v vinegar shoreditch. Knausgaard cronut wayfarers echo put a bird on it poutine pitchfork yuccie. Bitters mumblecore sartorial pbr&b try-hard bespoke gastropub diy. Salvia fingerstache distillery you probably haven't heard of them. Locavore trust fund thundercats."], ["rating", 5], ["created_at", "2017-08-03 22:05:26.392544"], ["updated_at", "2017-08-03 22:05:26.392544"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 3], ["user_id", 6], ["description", "Wolf master polaroid. Yr banjo microdosing next level 8-bit chambray. Put a bird on it selfies banh mi +1 street. Carry stumptown drinking."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.395114"], ["updated_at", "2017-08-03 22:05:26.395114"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 11], ["user_id", 4], ["description", "Seitan squid etsy health echo chartreuse vice fap. Irony cred synth biodiesel vinyl. Flannel offal quinoa readymade yolo next level pickled."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.397444"], ["updated_at", "2017-08-03 22:05:26.397444"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 11], ["user_id", 9], ["description", "Flannel mixtape humblebrag. Vinyl mustache cred. Portland fingerstache readymade brunch listicle blog. Butcher kickstarter forage."], ["rating", 4], ["created_at", "2017-08-03 22:05:26.399790"], ["updated_at", "2017-08-03 22:05:26.399790"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 1], ["user_id", 4], ["description", "Offal single-origin coffee pop-up readymade hella. Keytar literally keffiyeh. Beard letterpress bespoke. Fap next level cred pork belly offal green juice. Brooklyn scenester selvage ugh street jean shorts."], ["rating", 1], ["created_at", "2017-08-03 22:05:26.402124"], ["updated_at", "2017-08-03 22:05:26.402124"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 4], ["user_id", 9], ["description", "Cornhole chicharrones hashtag plaid fixie hammock direct trade try-hard. 90's viral butcher +1 flannel direct trade. Swag helvetica meh yr microdosing."], ["rating", 1], ["created_at", "2017-08-03 22:05:26.404372"], ["updated_at", "2017-08-03 22:05:26.404372"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 1], ["user_id", 3], ["description", "Pop-up cronut chartreuse kombucha. Dreamcatcher kale chips bicycle rights ugh normcore literally. Flannel messenger bag master next level five dollar toast photo booth. Intelligentsia twee pop-up messenger bag ennui 90's synth kickstarter. Offal truffaut scenester mumblecore."], ["rating", 5], ["created_at", "2017-08-03 22:05:26.406777"], ["updated_at", "2017-08-03 22:05:26.406777"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 11], ["user_id", 3], ["description", "Aesthetic kickstarter flannel post-ironic pinterest. Truffaut deep v diy small batch kitsch portland. Distillery chicharrones beard pinterest. Cray pbr&b health asymmetrical. Schlitz pug shoreditch mixtape seitan next level tofu pbr&b."], ["rating", 4], ["created_at", "2017-08-03 22:05:26.409156"], ["updated_at", "2017-08-03 22:05:26.409156"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 2], ["user_id", 4], ["description", "Carry neutra selfies franzen kale chips salvia beard. Readymade cronut craft beer drinking seitan typewriter diy. Seitan loko crucifix sartorial ethical."], ["rating", 4], ["created_at", "2017-08-03 22:05:26.411494"], ["updated_at", "2017-08-03 22:05:26.411494"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 10], ["user_id", 4], ["description", "Try-hard leggings pug scenester literally bespoke bicycle rights. Ugh pop-up forage fashion axe tacos tofu heirloom meh. Paleo tacos vhs vice dreamcatcher. Pinterest mixtape migas pour-over sustainable cold-pressed."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.413801"], ["updated_at", "2017-08-03 22:05:26.413801"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 1], ["user_id", 3], ["description", "Street tousled vinegar farm-to-table bicycle rights heirloom. Everyday marfa irony helvetica tumblr. Meggings try-hard whatever cred direct trade tacos everyday swag. Brunch tattooed irony. Actually blog slow-carb seitan wolf helvetica ugh."], ["rating", 5], ["created_at", "2017-08-03 22:05:26.416145"], ["updated_at", "2017-08-03 22:05:26.416145"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 9], ["user_id", 5], ["description", "Mixtape organic gastropub. Pug etsy tilde sartorial yuccie. Marfa church-key fingerstache. Deep v banjo biodiesel wolf drinking keffiyeh tattooed. Wes anderson sustainable tofu church-key pabst drinking."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.418572"], ["updated_at", "2017-08-03 22:05:26.418572"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 4], ["user_id", 4], ["description", "Leggings humblebrag before they sold out banjo polaroid. Pug crucifix yolo squid. Bushwick sartorial cornhole swag. Pork belly readymade austin echo bushwick."], ["rating", 4], ["created_at", "2017-08-03 22:05:26.420904"], ["updated_at", "2017-08-03 22:05:26.420904"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 9], ["user_id", 4], ["description", "Pug irony swag try-hard. Cliche everyday trust fund bushwick drinking. Salvia street selfies umami actually slow-carb chillwave. Mixtape biodiesel franzen selfies roof pug. Paleo bushwick 8-bit brunch hashtag vinyl neutra."], ["rating", 5], ["created_at", "2017-08-03 22:05:26.423177"], ["updated_at", "2017-08-03 22:05:26.423177"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 2], ["user_id", 1], ["description", "Heirloom try-hard banh mi loko retro small batch. Echo pbr&b goth green juice lo-fi letterpress. Freegan bitters cliche williamsburg chillwave."], ["rating", 5], ["created_at", "2017-08-03 22:05:26.425402"], ["updated_at", "2017-08-03 22:05:26.425402"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 5], ["user_id", 9], ["description", "Mlkshk taxidermy direct trade cornhole raw denim. Migas vice pinterest pork belly blog vegan meh. Jean shorts distillery deep v five dollar toast cred tattooed 3 wolf moon. Chambray ramps plaid trust fund xoxo hella messenger bag."], ["rating", 3], ["created_at", "2017-08-03 22:05:26.427640"], ["updated_at", "2017-08-03 22:05:26.427640"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["product_id", 7], ["user_id", 4], ["description", "Polaroid retro iphone hammock neutra tote bag green juice swag. Hammock pop-up tote bag distillery tousled next level. Poutine butcher quinoa deep v cred. Sriracha scenester diy kale chips leggings."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.430007"], ["updated_at", "2017-08-03 22:05:26.430007"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("product_id", "user_id", "description", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["product_id", 2], ["user_id", 1], ["description", "Pitchfork banh mi selvage put a bird on it salvia ennui. Butcher meggings intelligentsia seitan chia kogi irony. Portland pour-over ethical."], ["rating", 2], ["created_at", "2017-08-03 22:05:26.432270"], ["updated_at", "2017-08-03 22:05:26.432270"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 22:07:29 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.9ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (227.5ms)
+  Rendered products/index.html.erb within layouts/application (263.3ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_top_nav.html.erb (85.1ms)
+Completed 200 OK in 1412ms (Views: 1273.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/logout" for 10.0.2.2 at 2017-08-03 22:07:37 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-03 22:07:37 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.7ms)
+Completed 200 OK in 261ms (Views: 259.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-08-03 22:07:39 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (40.0ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.2ms)
+Completed 200 OK in 247ms (Views: 245.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2017-08-03 22:07:47 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6llyDiOvcI+4n4nc/9dyeNBf8Njkuld6rohfWOTM6PmLW2gDDHxhjZBAaxgr7168OinfSjnk1QM7rjcBHj+pzA==", "user"=>{"first_name"=>"Jay", "last_name"=>"Lin", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jay"], ["last_name", "Lin"], ["email", "123@hi.ca"], ["password_digest", "$2a$10$iUnHrHzngH0HZQgMXpC0xOD7lHbjw6/qGOt9ko8MfWKcCD7D4GwZi"], ["created_at", "2017-08-03 22:07:47.341669"], ["updated_at", "2017-08-03 22:07:47.341669"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 22:07:47 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (10.4ms)
+  Rendered products/index.html.erb within layouts/application (21.8ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 223ms (Views: 221.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:07:52 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (50.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (4.5ms)
+Completed 200 OK in 293ms (Views: 289.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 22:20:01 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.1ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (343.2ms)
+  Rendered products/index.html.erb within layouts/application (377.8ms)
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (92.0ms)
+Completed 200 OK in 1580ms (Views: 1483.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:20:04 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '11')[0m
+  Rendered products/show.html.erb within layouts/application (101.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (33.7ms)
+Completed 200 OK in 620ms (Views: 536.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:23:12 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '11')
+  Rendered products/show.html.erb within layouts/application (4.9ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.3ms)
+Completed 200 OK in 280ms (Views: 276.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 22:23:22 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (11.0ms)
+  Rendered products/index.html.erb within layouts/application (25.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 235ms (Views: 233.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/9" for 10.0.2.2 at 2017-08-03 22:23:24 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '9')
+  Rendered products/show.html.erb within layouts/application (3.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.5ms)
+Completed 200 OK in 255ms (Views: 251.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products/10" for 10.0.2.2 at 2017-08-03 22:23:26 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '10')[0m
+  Rendered products/show.html.erb within layouts/application (3.2ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 191ms (Views: 187.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products/8" for 10.0.2.2 at 2017-08-03 22:23:30 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '8')
+  Rendered products/show.html.erb within layouts/application (3.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.8ms)
+Completed 200 OK in 192ms (Views: 189.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/7" for 10.0.2.2 at 2017-08-03 22:23:31 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '7')[0m
+  Rendered products/show.html.erb within layouts/application (3.5ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 202ms (Views: 198.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products/5" for 10.0.2.2 at 2017-08-03 22:23:34 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '5')
+  Rendered products/show.html.erb within layouts/application (4.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 222ms (Views: 217.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products/6" for 10.0.2.2 at 2017-08-03 22:23:36 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '6')[0m
+  Rendered products/show.html.erb within layouts/application (2.7ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.3ms)
+Completed 200 OK in 188ms (Views: 184.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products/4" for 10.0.2.2 at 2017-08-03 22:23:39 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '4')
+  Rendered products/show.html.erb within layouts/application (3.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.7ms)
+Completed 200 OK in 199ms (Views: 196.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/3" for 10.0.2.2 at 2017-08-03 22:23:41 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '3')[0m
+  Rendered products/show.html.erb within layouts/application (3.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 208ms (Views: 204.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products/1" for 10.0.2.2 at 2017-08-03 22:23:44 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '1')
+  Rendered products/show.html.erb within layouts/application (3.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.8ms)
+Completed 200 OK in 185ms (Views: 181.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products/1" for 10.0.2.2 at 2017-08-03 22:23:46 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '1')[0m
+  Rendered products/show.html.erb within layouts/application (4.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 207ms (Views: 203.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products/1" for 10.0.2.2 at 2017-08-03 22:23:48 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '1')
+  Rendered products/show.html.erb within layouts/application (4.1ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (4.0ms)
+Completed 200 OK in 205ms (Views: 200.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products/2" for 10.0.2.2 at 2017-08-03 22:23:50 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '2')[0m
+  Rendered products/show.html.erb within layouts/application (3.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 189ms (Views: 185.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:25:12 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '11')
+  Rendered products/show.html.erb within layouts/application (3.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 239ms (Views: 236.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:25:13 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.6ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '11')[0m
+  Rendered products/show.html.erb within layouts/application (4.6ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (4.8ms)
+Completed 200 OK in 239ms (Views: 234.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 22:25:16 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (11.3ms)
+  Rendered products/index.html.erb within layouts/application (26.3ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.2ms)
+Completed 200 OK in 236ms (Views: 234.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:25:18 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '11')[0m
+  Rendered products/show.html.erb within layouts/application (3.8ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.0ms)
+Completed 200 OK in 198ms (Views: 193.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:25:53 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '11')
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (17.8ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (4.2ms)
+Completed 200 OK in 223ms (Views: 218.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:26:12 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE (product_id = '11')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered products/show.html.erb within layouts/application (22.3ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    28:     <ul>
+    29:       <% @reviews.each do |review| %>
+    30:         <li>
+    31:           <%= review.user.first_name review.user.last_name %>
+    32:         </li>
+    33:       <% end %>
+    34:     </ul>
+  app/views/products/show.html.erb:31:in `block in _app_views_products_show_html_erb___736722769671106808_35029020'
+  app/views/products/show.html.erb:29:in `_app_views_products_show_html_erb___736722769671106808_35029020'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (24.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-03 22:26:30 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (7.9ms)
+  Rendered products/index.html.erb within layouts/application (20.8ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.8ms)
+Completed 200 OK in 201ms (Views: 199.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:26:32 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '11')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (6.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (2.5ms)
+Completed 200 OK in 193ms (Views: 189.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:30:37 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '11')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (14.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 217ms (Views: 213.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/products/11" for 10.0.2.2 at 2017-08-03 22:32:08 +0000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE (product_id = '11')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/show.html.erb within layouts/application (6.6ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (9.0ms)
+Completed 200 OK in 207ms (Views: 203.8ms | ActiveRecord: 2.1ms)

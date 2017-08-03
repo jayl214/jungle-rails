@@ -132,5 +132,207 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.destroy_all
 
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+User.create({
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.email,
+  password: '123'
+})
+
+Review.destroy_all
+
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
+Review.create({
+  product_id: Faker::Number.between(1, 12),
+  user_id: Faker::Number.between(1, 9),
+  description: Faker::Hipster.paragraph,
+  rating: Faker::Number.between(1, 5)
+})
 puts "DONE!"
