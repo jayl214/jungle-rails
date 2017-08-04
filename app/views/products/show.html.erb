@@ -25,6 +25,7 @@
         </dl>
       </div>
     </div>
+
     <div class = "row">
       <div class="col-sm-12">
         <% @reviews.each do |review| %>
@@ -32,10 +33,37 @@
           <dt><%= "#{review.user.first_name} #{review.user.last_name}" %></dt>
           <dd><%= "#{review.rating}/5" %></dd>
           <dd><%= review.description %></dd>
+          <dd>
+            <% if current_user.id == review.user.id %>
+              <%= form_for :review, url: "/products/#{@product.id}/reviews/#{review.id}", method: :delete do |f| %>
+                <%= f.submit 'delete'%>
+
+            <% end %>
+          </dd>
+
+          <% end %>
+
         </dl>
+
         <% end %>
       </div>
     </div>
+    <% if current_user %>
+      <%= form_for :review, url: "/products/#{@product.id}/reviews" do |f| %>
+        <p>
+          <input type="text" name="review[description]">
+        </p>
+        <p>
+          <%= f.select(:rating, [1,2,3,4,5]) %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+
+      <% end %>
+    <% end %>
+
+
 
   </article>
 
