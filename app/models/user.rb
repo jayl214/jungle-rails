@@ -12,21 +12,25 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :case_sensitive => false
 
   def self.authenticate_with_credentials(email, password)
+
+    @user = nil
+
     if email == nil || password == nil
       return nil
     end
+
     User.all.each do |user|
       if user.email.downcase == email.downcase.strip
         @user = user
-      else
-        return nil
       end
     end
+
     if @user && @user.authenticate(password)
       return @user
     else
       return nil
     end
+
   end
 
 

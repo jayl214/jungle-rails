@@ -20753,3 +20753,506 @@ Processing by SessionsController#create as HTML
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "123@hi.ca"]]
 Redirected to http://localhost:3000login
 Completed 302 Found in 63ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-07 20:39:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.7ms)
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (70.2ms)
+Completed 200 OK in 1163ms (Views: 1139.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:39:10 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (398.6ms)
+  Rendered products/index.html.erb within layouts/application (419.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (3.4ms)
+Completed 200 OK in 716ms (Views: 664.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:39:13 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.4ms)
+Completed 200 OK in 223ms (Views: 221.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:14 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 25ms (ActiveRecord: 1.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:17 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:18 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:18 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:18 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:19 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:27 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:30 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:32 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:32 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:39:32 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:40:16 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:40:26 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:40:49 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:41:02 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIrMMrmoeXcFh/8lFC3mB5wUqrxTFbGFZkpA7BOKfFcRiNY/lntodS1YHeHAFcrDdmKFLo5LM/zzbCi16Xk9Yg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-08-07 20:41:26 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (29.7ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (1.9ms)
+Completed 200 OK in 251ms (Views: 250.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2017-08-07 20:41:36 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v5HPWBu/h+1Kr7fQdGPkUhFQxnSrD0Am8OkyxGEOdXXek9VVNGyW72JwVRSgW8iW+ybp5nZRwl9lz1qdm/00QA==", "user"=>{"first_name"=>"Jay ", "last_name"=>"Lin ", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (2.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('123@hi.ca') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 100ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-08-07 20:41:36 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.2ms)
+Completed 200 OK in 202ms (Views: 201.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:41:41 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.5ms)
+Completed 200 OK in 195ms (Views: 194.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:41:56 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ROHttty+ikYcjuadW1SyD+m7rXac0RtGG+1ESpGh1pIl4/e7822bRDRRBFmPbJ7LA82C5EGPmT+OyywTa1KXpw==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:47:51 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (314.3ms)
+  Rendered products/index.html.erb within layouts/application (355.5ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (35.2ms)
+Completed 200 OK in 1599ms (Views: 1502.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:47:55 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.9ms)
+Completed 200 OK in 320ms (Views: 318.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:47:58 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ozPOku7kT9jaSK1n6GnSWQ1Ws9+PLglx+LiGoCNtmg/CMdSfwTde2vKXT6M8Uf6d5yCcTVJwiwhtnu752Z7bOg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 34ms (ActiveRecord: 1.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:47:59 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ozPOku7kT9jaSK1n6GnSWQ1Ws9+PLglx+LiGoCNtmg/CMdSfwTde2vKXT6M8Uf6d5yCcTVJwiwhtnu752Z7bOg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:48:39 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (6.0ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (46.7ms)
+Completed 200 OK in 1335ms (Views: 1312.9ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:48:43 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"svW5M/yF8ZRyDgAlEpy4qQDetnN6U75BBzREFoQqeRLT96M+01bgllrR4uHGpJRt6qiZ4acNPDiSEixPftk4Jw==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/vagrant/w6d3/jungle-rails1/app/models/user.rb:35: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/models/user.rb:35: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/sessions_controller.rb:7:in `create'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (338.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (354.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:49:02 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (1.0ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (207.3ms)
+  Rendered products/index.html.erb within layouts/application (245.7ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (37.4ms)
+Completed 200 OK in 1538ms (Views: 1450.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:49:06 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (4.8ms)
+Completed 200 OK in 348ms (Views: 347.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:49:07 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ubQYZSQ1PK9PFL08eGpbomyVSfxRxPnc08WsWyqg8vjYtgJoC+YtrWfLX/isUndmhuNmboyae6VG48QC0FOzzQ==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 37ms (ActiveRecord: 2.0ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:49:10 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ubQYZSQ1PK9PFL08eGpbomyVSfxRxPnc08WsWyqg8vjYtgJoC+YtrWfLX/isUndmhuNmboyae6VG48QC0FOzzQ==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000login
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:49:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (6.0ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (40.1ms)
+Completed 200 OK in 1196ms (Views: 1177.3ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:49:34 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XGZpxuSfpLAR+jMxDc64TgIwkSkoASkOjfRKRCcYHEg9ZHPLy0y1sjkl0fXZ9pSK6Ea+u/Vfq3cY0iId3etdfQ==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 30ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/sessions/new" for 10.0.2.2 at 2017-08-07 20:52:37 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (49.1ms)
+Completed 200 OK in 1159ms (Views: 1136.1ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:52:41 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JqxoxVFKDdQOnc30d707WxvjRlcLWlPFmcA7S4d/3D5HrnLIfpkc1iZCLzCjhRef8ZVpxdYE0bwM5lMSfYydCw==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:52:41 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (372.0ms)
+  Rendered products/index.html.erb within layouts/application (395.5ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (31.8ms)
+Completed 200 OK in 710ms (Views: 653.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/logout" for 10.0.2.2 at 2017-08-07 20:52:44 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-07 20:52:44 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (2.2ms)
+Completed 200 OK in 210ms (Views: 209.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-08-07 20:52:45 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (30.7ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (2.5ms)
+Completed 200 OK in 277ms (Views: 276.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2017-08-07 20:53:00 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r6cEluMqv7PqV3WE6kjj35SqKn7imVF9P2gXQYwIx8LOpR6bzPmuscKIl0A+cM8bftwF7D/H0wSqTn8YdvuG9w==", "user"=>{"first_name"=>"johnny", "last_name"=>"McGuffin", "email"=>"leon@pro.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('leon@pro.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "johnny"], ["last_name", "McGuffin"], ["email", "leon@pro.com"], ["password_digest", "$2a$10$dwvjaIFAN9JJuWvFoAguaOLW1QpPsJgwDj5RPl9DggwDQiGfvxM/G"], ["created_at", "2017-08-07 20:53:00.961150"], ["updated_at", "2017-08-07 20:53:00.961150"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 109ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:53:00 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (16.7ms)
+  Rendered products/index.html.erb within layouts/application (34.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered layouts/_top_nav.html.erb (3.9ms)
+Completed 200 OK in 290ms (Views: 287.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/logout" for 10.0.2.2 at 2017-08-07 20:53:11 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-07 20:53:11 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (3.1ms)
+Completed 200 OK in 244ms (Views: 242.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:53:20 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mP89aN7mlbQEZEPgKJ2I879G3kiJ5BnJLW1H3MWzXf35/Sdl8TWEtiy7oST8paQ3VTDx2lS6m7C4Sy+FP0AcyA==", "email"=>"leon@pro.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 68ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:53:20 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (12.0ms)
+  Rendered products/index.html.erb within layouts/application (25.5ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered layouts/_top_nav.html.erb (3.8ms)
+Completed 200 OK in 238ms (Views: 236.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:54:11 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (9.4ms)
+  Rendered products/index.html.erb within layouts/application (28.2ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  Rendered layouts/_top_nav.html.erb (61.7ms)
+Completed 200 OK in 317ms (Views: 283.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:54:22 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.8ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (230.5ms)
+  Rendered products/index.html.erb within layouts/application (270.4ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered layouts/_top_nav.html.erb (114.2ms)
+Completed 200 OK in 1660ms (Views: 1573.2ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/logout" for 10.0.2.2 at 2017-08-07 20:54:26 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-07 20:54:26 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (5.1ms)
+Completed 200 OK in 306ms (Views: 304.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:54:28 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gbd1dtABBa7ekSTu77peDpjH6DfoBFK29dL9hzdp1rt4tW97/9IUrPZOxio7gnLKcrHHpTVa0M9g9JXezZqXjg==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Redirected to http://localhost:3000/
+Completed 302 Found in 73ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:54:28 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (13.7ms)
+  Rendered products/index.html.erb within layouts/application (28.5ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (4.7ms)
+Completed 200 OK in 260ms (Views: 258.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/logout" for 10.0.2.2 at 2017-08-07 20:54:30 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-07 20:54:30 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered layouts/_top_nav.html.erb (3.2ms)
+Completed 200 OK in 221ms (Views: 219.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 20:54:36 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UDhRUL1VeVdvrfY7mY2sp7uVqFdBjr19VWPjddJSckoxOktdkoZoVUdyFP9NtYBjUeOHxZzQPwTARYssKKEzfw==", "email"=>"leon@pro.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 67ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 20:54:36 +0000
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (9.3ms)
+  Rendered products/index.html.erb within layouts/application (23.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered layouts/_top_nav.html.erb (3.6ms)
+Completed 200 OK in 242ms (Views: 240.9ms | ActiveRecord: 0.9ms)
