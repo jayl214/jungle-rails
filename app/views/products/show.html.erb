@@ -37,20 +37,22 @@
           <dt><%= "#{review.user.first_name} #{review.user.last_name}" %></dt>
           <dt><%= "#{review.rating}/5" %></dt>
           <dd><%= review.description %></dd>
-
-          <dd>
-            <% if current_user.id == review.user.id %>
-              <%= form_for :review, url: "/products/#{@product.id}/reviews/#{review.id}", method: :delete do |f| %>
-                <%= f.submit 'delete', class: 'btn btn-danger'%>
+          <% if current_user %>
+            <dd>
+              <% if current_user.id == review.user.id %>
+                <%= form_for :review, url: "/products/#{@product.id}/reviews/#{review.id}", method: :delete do |f| %>
+                  <%= f.submit 'delete', class: 'btn btn-danger'%>
+                <% end %>
               <% end %>
-            <% end %>
-          </dd>
+            </dd>
+          <% end %>
           </dl>
         <% end %>
+      <% if current_user %>
         <dl class="dl-horizontal">
           <dt><%= "#{current_user.first_name} #{current_user.last_name}" %></dt>
           <dd>
-            <% if current_user %>
+
               <%= form_for :review, url: "/products/#{@product.id}/reviews" do |f| %>
                 <p>
                   <%= f.text_area(:description, class: "form-control") %>
