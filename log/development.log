@@ -21256,3 +21256,48 @@ Processing by ProductsController#index as HTML
   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
   Rendered layouts/_top_nav.html.erb (3.6ms)
 Completed 200 OK in 242ms (Views: 240.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 21:39:42 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC
+  Rendered products/_product.html.erb (264.8ms)
+  Rendered products/index.html.erb within layouts/application (304.9ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered layouts/_top_nav.html.erb (83.1ms)
+Completed 200 OK in 1578ms (Views: 1477.6ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/logout" for 10.0.2.2 at 2017-08-07 21:39:45 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-08-07 21:39:45 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered layouts/_top_nav.html.erb (3.6ms)
+Completed 200 OK in 321ms (Views: 320.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 10.0.2.2 at 2017-08-07 21:39:47 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5+gYZOdzLVxUeqb9OHf+khKS0O752gGJSr8p/YcjoL6G6gJpyKA8XnylRDnsT9JW+OT/fCSEg/DfmUGkfdDhiw==", "email"=>"123@hi.ca", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE (lower(email) = lower('123@hi.ca'))  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 73ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-08-07 21:39:47 +0000
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  ORDER BY "products"."created_at" DESC[0m
+  Rendered products/_product.html.erb (15.9ms)
+  Rendered products/index.html.erb within layouts/application (28.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered layouts/_top_nav.html.erb (4.3ms)
+Completed 200 OK in 257ms (Views: 255.2ms | ActiveRecord: 0.9ms)

@@ -13,17 +13,11 @@ class User < ActiveRecord::Base
 
   def self.authenticate_with_credentials(email, password)
 
-    @user = nil
-
     if email == nil || password == nil
       return nil
     end
 
-    User.all.each do |user|
-      if user.email.downcase == email.downcase.strip
-        @user = user
-      end
-    end
+    @user = User.where('lower(email) = lower(?)', email.strip).first
 
     if @user && @user.authenticate(password)
       return @user
