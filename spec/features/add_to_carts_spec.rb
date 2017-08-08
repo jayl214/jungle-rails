@@ -24,7 +24,7 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
 
     expect(page).to have_link('My Cart (1)')
 
-    save_screenshot
+    # save_screenshot
 
   end
 
